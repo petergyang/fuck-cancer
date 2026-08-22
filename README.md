@@ -15,7 +15,7 @@ The last thing a patient or caregiver needs is a pile of confusing medical terms
 3. **Researches current treatment options.** It starts with official cancer agencies, regulators, and professional guidance instead of citing random health pages.
 4. **Finds clinical trials carefully.** It searches the official ClinicalTrials.gov API, checks the individual site's recruitment status, and names the eligibility questions that still need confirmation.
 5. **Finds focused second opinions.** It returns up to three specialists or centers that fit the cancer type, disease setting, location, and practical constraints.
-6. **Keeps the family aligned.** It creates one concise brief and updates it when new results or treatment decisions arrive.
+6. **Keeps the family aligned.** It creates one concise brief, maintains a simple dated care timeline, and finds practical support when the family needs it.
 
 ## How to install /fuck-cancer
 
@@ -64,8 +64,8 @@ The skill asks only for missing information that could change the immediate guid
 Every report has no more than three sections:
 
 1. **Current priority.** What needs to happen next and why.
-2. **What to do next.** The most useful actions, questions, trials, or second opinions in priority order.
-3. **What we know.** A plain-English explanation of the diagnosis, tests, biomarkers, stage, treatment history, and meaningful uncertainty.
+2. **What to do next.** The most useful actions, questions, trials, second opinions, or practical support in priority order.
+3. **What we know.** A plain-English explanation of the diagnosis, tests, biomarkers, stage, treatment history, and meaningful uncertainty, with a compact dated care timeline when useful.
 
 Every list in the brief is numbered, including medical definitions and trial candidates. “What to do next” contains no more than three items. Each item uses a bold stem followed by two or three useful sentences. Sources and the research date appear in a compact footer.
 
@@ -98,6 +98,10 @@ Confirm whether the cancer is stage II and decide whether to start the recommend
    3. **Triple-negative breast cancer:** This means the cancer is ER-negative, PR-negative, and HER2-negative. Chemotherapy is a central treatment, and immunotherapy may be added in some early-stage or metastatic settings.
    4. **PD-L1:** This marker can affect immunotherapy decisions in metastatic triple-negative breast cancer. It does not control every immunotherapy decision in early-stage disease, so its meaning depends on the treatment setting.
    5. **Stage II:** The cancer is in the breast and may involve nearby lymph nodes, but no distant spread has been found. The oncology team confirms the exact stage.
+3. **Care timeline:**
+   1. **August 4:** A diagnostic mammogram and ultrasound found a 3.2 cm breast mass and a suspicious underarm lymph node.
+   2. **August 8:** Biopsies confirmed invasive ductal carcinoma in the breast and cancer in the sampled lymph node.
+   3. **August 15:** Staging imaging found no distant spread, moving the immediate decision to treatment planning and optional trial screening.
 
 ## Trusted medical sources
 
@@ -114,9 +118,9 @@ The skill grounds its research in trusted medical sources:
 
 ## Practical and supportive
 
-Fuck Cancer acknowledges that the situation may be frightening, exhausting, or unfair, then helps with the next step. It does not say “stay positive,” promise that everything will be okay, or force patients to describe cancer as a battle.
+Fuck Cancer acknowledges that the situation may be frightening, exhausting, or unfair, then helps with the next step. It can find a few local services for practical burdens such as transportation, meals, lodging, or caregiver support. It does not say “stay positive,” promise that everything will be okay, or force patients to describe cancer as a battle.
 
-The skill supports decisions with current evidence. It does not diagnose cancer, choose treatment, determine trial eligibility, or replace the patient's medical team.
+The skill supports decisions with current evidence. It does not diagnose cancer, choose treatment, determine trial eligibility, or replace the patient's medical team. For symptom questions, it gives a clear action level without pretending to calculate a medical confidence score.
 
 ## What's inside
 
