@@ -61,7 +61,7 @@ The skill asks only for missing information that could change the immediate guid
 
 ## The output: A practical, concise brief for you and your family
 
-Every brief opens with a few warm sentences that credit what the family has already done, then uses four sections:
+Every brief opens with a few warm sentences that fit the moment, then uses four sections:
 
 1. **Current priority.** Two short paragraphs: the decision in front of the family and the best-studied path, then what is time-sensitive, with specific trials or options named.
 2. **What to do next.** No more than three actions in priority order: questions to bring to the oncologist (at most five, offered as suggestions), missing tests, current options, trials, second opinions, or practical support.
