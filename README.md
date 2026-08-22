@@ -8,21 +8,6 @@ Since I published [my mom's cancer story](https://creatoreconomy.so/p/my-mom-sur
 
 The last thing a patient or caregiver needs is a pile of confusing medical terms, hype, and scattered information. They need clear answers to three questions: What should we do next? What are the key facts? What treatment options should we ask about?
 
-## What readers shared
-
-I received dozens of replies after sharing my mom's story. Here are ten anonymous excerpts, lightly edited for length and privacy:
-
-1. “My mom was recently very unexpectedly diagnosed with breast cancer. Like you described, it's a scary process and involves the whole family. Reading your story is really helpful.”
-2. “My mom has also just been diagnosed with recurrent breast cancer. We're about to start that journey all over again, which is a sort of shitty choose-your-own-adventure as you wait for tests and results and appointments and more tests and more results.”
-3. “When my mom was diagnosed with cancer, I took over three months completely off from my very demanding job. It was one of the best decisions I've made, and I wouldn't trade that time with her for anything I could have gotten from working.”
-4. “I've created my health project/agent, having it help me navigate difficult conversations with health care providers, navigate billing and the mess it comes with, know what's best for me, and advocate for myself.”
-5. “I input questions I've developed for my dad or a doctor into Claude; it helps me clarify my inquiries and receive helpful feedback. I find it helps me gather my thoughts and track the information I have received.”
-6. “You're doing the right thing and inspired me to make sure I'm capturing stories from my aging parents. I've also been trying to figure out how I can help them with similar use cases, especially considering the volume of doctors, documents, and insurance paperwork.”
-7. “The business can wait. I want to hear all her stories. This is exactly what I should've done: asked her more about her stories and her life. There's so much we don't know about our parents, right there for us to grasp if we just take the time.”
-8. “Your experience using ChatGPT to navigate healthcare is inspiring me to do the same.”
-9. “During my rehabilitation, AI has been useful for understanding medical issues and providing support, though there is still significant room for improvement. One challenge I face is convincing my parents that we can rely on AI alongside human doctors.”
-10. “How are you navigating privacy risks? I've wanted to do the same for my son. Every time I get close to starting something like this, I end up backing out due to privacy concerns and not wanting his information to be leaked.”
-
 ## What this skill does
 
 1. **Explains the key facts and medical terms clearly.** It translates pathology, imaging, biomarkers, staging, and treatment language into plain English.
