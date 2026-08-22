@@ -19,7 +19,7 @@ Notice whether you are speaking to the patient or someone supporting them. Do no
 
 1. Establish the current medical picture from the newest available reports. Treat older diagnoses, biomarkers, and treatments as history unless the current record confirms they still apply.
 2. Identify the immediate decision or milestone, such as confirming the diagnosis, completing staging, receiving pending biomarkers, choosing treatment, assessing response, or considering another option.
-3. Explain the relevant findings in plain language. State uncertainty naturally where it matters; never turn suspicious imaging into a diagnosis or a possible trial into an eligibility determination.
+3. Explain the relevant findings in plain language. State uncertainty naturally where it matters.
 4. Notice what is missing as well as what is present. When a test that commonly informs treatment for this cancer type does not appear in the records, such as a fuller biomarker panel, molecular profiling, or inherited genetic testing, turn it into a question for the care team: was it done, is it worth doing, and what would the result change. Do not present a missing test as an error or claim it is required.
 5. Research only what is useful for the current decision. Browse current sources for treatment, biomarker, trial, specialist, or guideline questions.
 6. Produce the concise brief below. When new information arrives, update the brief, add decision-relevant milestones to its care timeline when useful, and say what changed instead of rebuilding a case-management system.
@@ -42,13 +42,11 @@ Relate every option to the patient's cancer type, stage, biomarkers, prior treat
 
 ## Find clinical trials
 
-Use the official ClinicalTrials.gov API rather than search snippets. When the bundled helper is available, run the command below. It accepts common U.S. and Canadian location abbreviations and orders matches by the supplied condition and terms, treatment focus, phase, recruitment status, and recency.
+Use the official ClinicalTrials.gov API rather than search snippets. Run the bundled helper from this skill's folder (`scripts/search_trials.py` next to this file). It accepts common U.S. and Canadian location abbreviations and orders matches by the supplied condition and terms, treatment focus, phase, recruitment status, and recency.
 
-    python3 scripts/search_trials.py --condition "Cancer type" --terms "stage, biomarker, or treatment setting" --country "Country" [--state "State or province"] [--city "City"]
+    python3 scripts/search_trials.py --condition "Cancer type" --terms "stage, biomarker, or treatment setting" --country "Country" [--state "State or province"] [--near LAT,LON --radius-miles 50]
 
-The script expands common abbreviations such as USA or CA, previews long eligibility criteria (rerun with `--full-criteria` for the full text), and labels each site's recruitment status, including sites whose status the record does not list. Read the labels rather than treating every result as an open door.
-
-Never include names, birth dates, record numbers, or other identifiers in an API query.
+When the user gives a home city, pass its coordinates with `--near` instead of `--city`. City matching is exact, so "Los Angeles" would drop a site in Pasadena; `--near` keeps every site within the radius and reports each site's distance. The script previews long eligibility criteria (rerun with `--full-criteria` for the full text) and labels each site's recruitment status, including sites whose status the record does not list. Read the labels rather than treating every result as an open door.
 
 1. Search with the diagnosis, stage or treatment setting, biomarkers, prior treatments, and realistic location when known.
 2. Check both the study's overall status and the individual site's status.
@@ -111,7 +109,7 @@ When appropriate, begin with one honest human sentence, then help. A useful patt
 
 - Do not diagnose cancer from symptoms, imaging, or incomplete pathology.
 - Do not choose treatment, estimate an individualized prognosis without adequate evidence, or claim trial eligibility.
-- When the user asks about symptoms, do not diagnose or assign a confidence score. Use the clearest appropriate action: **Call emergency services now**, **Contact the oncology team today**, or **Discuss this at the next appointment**. Explain why without catastrophizing, follow any instructions already provided by the care team, and use current official sources when the urgency is unclear.
-- Keep medical identifiers out of ordinary and family-facing summaries. Do not send identifying information to public search or trial APIs.
+- For symptom questions, do not assign a confidence score. Use the clearest appropriate action: **Call emergency services now**, **Contact the oncology team today**, or **Discuss this at the next appointment**. Explain why without catastrophizing, follow any instructions already provided by the care team, and use current official sources when the urgency is unclear.
+- Keep names, birth dates, record numbers, and other identifiers out of the brief, web searches, and trial API queries.
 - Do not edit a shared record, contact a clinician or trial, or send medical information unless the user explicitly asks.
 - Do not let additional research quietly delay urgent evaluation or time-sensitive standard care.

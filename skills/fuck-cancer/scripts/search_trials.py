@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import math
 import re
 import sys
 import time
@@ -89,6 +90,8 @@ SUPPORTIVE_MARKERS = (
     "behavioral", "e-health", "exercise", "fear of", "interview",
     "quality of life", "supportive care", "survey",
 )
+DEFAULT_RADIUS_MILES = 50
+EARTH_RADIUS_MILES = 3958.8
 PHASE_PRIORITY = {
     "PHASE3": 5,
     "PHASE2": 3,
@@ -109,6 +112,39 @@ def normalize_country(value: str) -> str:
 def normalize_state(value: str) -> str:
     cleaned = clean(value)
     return STATE_ALIASES.get(cleaned.casefold(), cleaned)
+
+
+def parse_near(value: str) -> Optional[Tuple[float, float]]:
+    """Parse "LAT,LON" into floats. Returns None for an empty value."""
+    cleaned = clean(value)
+    if not cleaned:
+        return None
+    parts = [part.strip() for part in cleaned.split(",")]
+    if len(parts) != 2:
+        raise argparse.ArgumentTypeError("--near expects LAT,LON such as 34.05,-118.24")
+    try:
+        lat, lon = float(parts[0]), float(parts[1])
+    except ValueError as error:
+        raise argparse.ArgumentTypeError("--near expects numeric LAT,LON") from error
+    if not (-90 <= lat <= 90 and -180 <= lon <= 180):
+        raise argparse.ArgumentTypeError("--near coordinates are out of range")
+    return lat, lon
+
+
+def distance_miles(origin: Tuple[float, float], point: dict) -> Optional[float]:
+    """Great-circle distance from origin to a site's geoPoint, or None if missing."""
+    try:
+        lat2 = float(point["lat"])
+        lon2 = float(point["lon"])
+    except (KeyError, TypeError, ValueError):
+        return None
+    lat1, lon1 = map(math.radians, origin)
+    lat2, lon2 = math.radians(lat2), math.radians(lon2)
+    a = (
+        math.sin((lat2 - lat1) / 2) ** 2
+        + math.cos(lat1) * math.cos(lat2) * math.sin((lon2 - lon1) / 2) ** 2
+    )
+    return 2 * EARTH_RADIUS_MILES * math.asin(math.sqrt(a))
 
 
 def query_tokens(value: object) -> set:
@@ -209,6 +245,11 @@ def site_matches(location: dict, args: argparse.Namespace, overall_status: str) 
         actual = clean(location.get(field))
         if wanted and actual.casefold() != wanted.casefold():
             return False
+    near = getattr(args, "near", None)
+    if near:
+        distance = distance_miles(near, location.get("geoPoint") or {})
+        if distance is None or distance > args.radius_miles:
+            return False
     return True
 
 
@@ -232,6 +273,7 @@ def fetch_studies(args: argparse.Namespace) -> Tuple[List[dict], bool]:
             "LocationCity",
             "LocationState",
             "LocationCountry",
+            "LocationGeoPoint",
         ]
     )
     location_query = ", ".join(
@@ -247,6 +289,9 @@ def fetch_studies(args: argparse.Namespace) -> Tuple[List[dict], bool]:
     }
     if args.terms:
         params["query.term"] = args.terms
+    if getattr(args, "near", None):
+        lat, lon = args.near
+        params["filter.geo"] = f"distance({lat},{lon},{args.radius_miles}mi)"
 
     studies: list[dict] = []
     for _ in range(MAX_PAGES):
@@ -290,6 +335,25 @@ def extract(study: dict, args: argparse.Namespace) -> Optional[dict]:
         return None
 
     nct_id = clean(identification.get("nctId"))
+    near = getattr(args, "near", None)
+
+    def site_entry(site: dict) -> dict:
+        entry = {
+            "facility": clean(site.get("facility")),
+            "status": clean(site.get("status"))
+            or f"not listed (study is {overall_status})",
+            "city": clean(site.get("city")),
+            "state": clean(site.get("state")),
+            "country": clean(site.get("country")),
+        }
+        if near:
+            distance = distance_miles(near, site.get("geoPoint") or {})
+            entry["distance_miles"] = round(distance) if distance is not None else None
+        return entry
+
+    open_sites = [site_entry(site) for site in matching_sites]
+    if near:
+        open_sites.sort(key=lambda site: site["distance_miles"] or 0)
     return {
         "nct_id": nct_id,
         "url": f"https://clinicaltrials.gov/study/{nct_id}",
@@ -318,17 +382,7 @@ def extract(study: dict, args: argparse.Namespace) -> Optional[dict]:
         "eligibility_criteria": preview_criteria(
             eligibility.get("eligibilityCriteria", ""), args.full_criteria
         ),
-        "open_sites": [
-            {
-                "facility": clean(site.get("facility")),
-                "status": clean(site.get("status"))
-                or f"not listed (study is {overall_status})",
-                "city": clean(site.get("city")),
-                "state": clean(site.get("state")),
-                "country": clean(site.get("country")),
-            }
-            for site in matching_sites
-        ],
+        "open_sites": open_sites,
     }
 
 
@@ -339,6 +393,18 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser.add_argument("--country", required=True)
     parser.add_argument("--state", default="", help="State, province, or region")
     parser.add_argument("--city", default="")
+    parser.add_argument(
+        "--near",
+        type=parse_near,
+        default=None,
+        help="LAT,LON of the patient's home area, e.g. 34.05,-118.24 for Los Angeles",
+    )
+    parser.add_argument(
+        "--radius-miles",
+        type=float,
+        default=DEFAULT_RADIUS_MILES,
+        help=f"Keep only sites within this many miles of --near (default {DEFAULT_RADIUS_MILES})",
+    )
     parser.add_argument("--limit", type=int, default=10)
     parser.add_argument(
         "--full-criteria",
@@ -357,6 +423,9 @@ def main() -> int:
     args = parse_args()
     if args.limit < 1:
         print("--limit must be at least 1", file=sys.stderr)
+        return 2
+    if args.radius_miles <= 0:
+        print("--radius-miles must be greater than 0", file=sys.stderr)
         return 2
 
     try:
@@ -377,6 +446,8 @@ def main() -> int:
             "country": args.country,
             "state": args.state,
             "city": args.city,
+            "near": list(args.near) if args.near else None,
+            "radius_miles": args.radius_miles if args.near else None,
             "open_site_statuses": list(OPEN_STATUSES),
             "status_notes": STATUS_NOTES,
         },
@@ -403,7 +474,8 @@ def main() -> int:
             "No open sites matched. Location matching is exact: use full names such "
             "as 'United States' or 'California' (common abbreviations like USA or CA "
             "are expanded automatically), check spelling, or widen the search by "
-            "dropping --city or --state."
+            "dropping --city or --state, or by using --near LAT,LON with a larger "
+            "--radius-miles."
         )
     rendered = json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
     if args.output:

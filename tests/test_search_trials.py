@@ -27,6 +27,8 @@ def make_args(**overrides):
         "country": "United States",
         "state": "",
         "city": "",
+        "near": None,
+        "radius_miles": 50.0,
         "limit": 10,
         "full_criteria": False,
         "output": None,
@@ -279,6 +281,58 @@ class FetchTests(unittest.TestCase):
         second_url = get_json.call_args_list[1].args[0]
         self.assertIn("query.locn=California%2C+United+States", first_url)
         self.assertIn("pageToken=next", second_url)
+
+
+LOS_ANGELES = (34.0522, -118.2437)
+
+
+class GeoTests(unittest.TestCase):
+    def test_parse_near_accepts_lat_lon(self):
+        self.assertEqual(search_trials.parse_near("34.05, -118.24"), (34.05, -118.24))
+        self.assertIsNone(search_trials.parse_near(""))
+
+    def test_parse_near_rejects_bad_input(self):
+        for value in ("Los Angeles", "34.05", "95,0", "a,b"):
+            with self.assertRaises(argparse.ArgumentTypeError):
+                search_trials.parse_near(value)
+
+    def test_distance_is_roughly_correct(self):
+        # Los Angeles to San Diego is about 112 miles.
+        miles = search_trials.distance_miles(LOS_ANGELES, {"lat": 32.7157, "lon": -117.1611})
+        self.assertAlmostEqual(miles, 112, delta=5)
+        self.assertIsNone(search_trials.distance_miles(LOS_ANGELES, {}))
+
+    def test_near_keeps_close_sites_and_drops_far_or_unlocated_ones(self):
+        args = make_args(near=LOS_ANGELES, radius_miles=40)
+        close = {"status": "RECRUITING", "country": "United States",
+                 "city": "Torrance", "geoPoint": {"lat": 33.8358, "lon": -118.3406}}
+        far = {"status": "RECRUITING", "country": "United States",
+               "city": "San Diego", "geoPoint": {"lat": 32.7157, "lon": -117.1611}}
+        unlocated = {"status": "RECRUITING", "country": "United States", "city": "Unknown"}
+        self.assertTrue(search_trials.site_matches(close, args, "RECRUITING"))
+        self.assertFalse(search_trials.site_matches(far, args, "RECRUITING"))
+        self.assertFalse(search_trials.site_matches(unlocated, args, "RECRUITING"))
+
+    def test_extract_reports_distance_and_sorts_nearest_first(self):
+        args = make_args(near=LOS_ANGELES, radius_miles=60)
+        study = make_study(locations=[
+            {"facility": "Far", "status": "RECRUITING", "city": "Irvine",
+             "country": "United States", "geoPoint": {"lat": 33.6695, "lon": -117.8231}},
+            {"facility": "Near", "status": "RECRUITING", "city": "Beverly Hills",
+             "country": "United States", "geoPoint": {"lat": 34.0736, "lon": -118.4004}},
+        ])
+        result = search_trials.extract(study, args)
+        self.assertEqual([site["facility"] for site in result["open_sites"]], ["Near", "Far"])
+        self.assertLess(result["open_sites"][0]["distance_miles"], 15)
+
+    def test_fetch_sends_geo_filter(self):
+        args = search_trials.parse_args([
+            "--condition", "breast cancer", "--country", "USA",
+            "--near", "34.05,-118.24", "--radius-miles", "40",
+        ])
+        with mock.patch.object(search_trials, "get_json", return_value={"studies": []}) as get_json:
+            search_trials.fetch_studies(args)
+        self.assertIn("filter.geo=distance%2834.05%2C-118.24%2C40.0mi%29", get_json.call_args.args[0])
 
 
 if __name__ == "__main__":
