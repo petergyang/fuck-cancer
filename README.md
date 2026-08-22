@@ -15,7 +15,7 @@ The last thing a patient or caregiver needs is a pile of confusing medical terms
 3. **Researches current treatment options.** It starts with official cancer agencies, regulators, and professional guidance instead of citing random health pages.
 4. **Finds clinical trials carefully.** It searches the official ClinicalTrials.gov API, checks the individual site's recruitment status, and names the eligibility questions that still need confirmation.
 5. **Finds focused second opinions.** It returns up to three specialists or centers that fit the cancer type, disease setting, location, and practical constraints.
-6. **Keeps the family aligned.** It creates one concise brief, maintains a simple dated care timeline, and finds practical support when the family needs it.
+6. **Keeps the family aligned.** It creates one concise brief, keeps a dated care log, and finds practical support when the family needs it.
 
 ## How to install /fuck-cancer
 
@@ -61,47 +61,62 @@ The skill asks only for missing information that could change the immediate guid
 
 ## The output: A practical, concise brief for you and your family
 
-Every report has no more than three sections:
+Every brief opens with a few warm sentences that credit what the family has already done, then uses four sections:
 
-1. **Current priority.** What needs to happen next and why.
-2. **What to do next.** The most useful actions, questions, trials, second opinions, or practical support in priority order.
-3. **What we know.** A plain-English explanation of the diagnosis, tests, biomarkers, stage, treatment history, and meaningful uncertainty, with a compact dated care timeline when useful.
+1. **Current priority.** Two short paragraphs: the decision in front of the family and the best-studied path, then what is time-sensitive, with specific trials or options named.
+2. **What to do next.** No more than three actions in priority order: questions to bring to the oncologist (at most five, offered as suggestions), missing tests, current options, trials, second opinions, or practical support.
+3. **What we know.** A plain-English explanation of the diagnosis, tests, biomarkers, stage, and meaningful uncertainty.
+4. **Care log.** A dated history, newest first, including the day the brief was created or updated.
 
-Every list in the brief is numbered, including medical definitions and trial candidates. “What to do next” contains no more than three items. Each item uses a bold stem followed by two or three useful sentences. Sources and the research date appear in a compact footer.
+Every list is numbered. Each item uses a bold stem followed by two or three sentences, and each trial candidate is capped at three sentences. Any drug or medical term gets a few-word explainer in parentheses the first time it appears, so nobody has to leave the page to understand a sentence. There is no sources footer or disclaimer.
 
 The canonical output is one Markdown document in chat. If Google Drive is connected, the user can explicitly ask the agent to copy or update the same brief in a Google Doc. The skill does not assume a connector, automate a signed-in browser without permission, or create a separate tracking system.
 
 ## Sample brief
 
-This fictional example shows the complete format. The patient is 46, lives near Los Angeles, and has newly diagnosed stage II triple-negative breast cancer. Treatment has not started.
+This fictional example shows the complete format. The patient is 46, lives near Los Angeles, and has newly diagnosed stage II triple-negative breast cancer. Treatment has not started. The trials were pulled live from ClinicalTrials.gov within 40 miles of Los Angeles on August 22, 2026.
 
 ### Breast Cancer Care Brief
 
+Three weeks ago this was a lump. Today you have a confirmed diagnosis, clean staging scans, and an oncology visit on the calendar. That is fast, and it's because you pushed. Nothing needs to be decided before next week. The goal is to walk in knowing what to ask.
+
 #### Current priority
 
-Confirm whether the cancer is stage II and decide whether to start the recommended treatment before surgery or complete clinical-trial screening first. The biopsy shows triple-negative breast cancer, and imaging has not found distant spread, but the oncology team still needs to confirm how the involved underarm lymph node affects the stage and treatment plan.
+Next week's visit sets the order of treatment. For stage II triple-negative breast cancer (a type that doesn't respond to hormone or HER2-targeted drugs) with one involved lymph node, the best-studied path is chemotherapy plus pembrolizumab (an immunotherapy that helps your immune system attack the cancer) before surgery, then surgery, then more pembrolizumab.
+
+Two Los Angeles trials, NCT05929768 at Kaiser and Cedars-Sinai and NCT06353997 at the Ellison Institute, build on that same path but only take patients who have not started treatment. If either interests you, ask about screening at this visit. Once chemotherapy begins, that door closes.
 
 #### What to do next
 
-1. **Confirm the stage and baseline workup.** Ask the oncologist to confirm the tumour size, whether nearby lymph nodes are involved, and that no distant spread was found. Ask whether any additional imaging, heart testing, bloodwork, or inherited genetic testing is needed before treatment, and get a date for anything still pending.
-2. **Discuss the standard treatment before surgery.** NCI's current evidence summary describes chemotherapy plus pembrolizumab before surgery, followed by continued pembrolizumab after surgery, for some patients with stage II or III triple-negative breast cancer. Ask why this regimen fits, its major immune and chemotherapy risks, and how the surgical pathology would affect treatment afterward.
-3. **Ask about two relevant clinical trials before starting treatment.** These trials are screening candidates:
-   1. **[NCT06966700](https://clinicaltrials.gov/study/NCT06966700): Phase 3 study of sacituzumab tirumotecan in high-risk early breast cancer.** This study includes previously untreated, nonmetastatic triple-negative or hormone-receptor-low/HER2-negative breast cancer and had a recruiting site in Burbank, California. The trial team must confirm the exact T and N stage, performance status, organ function, prior procedures, and whether randomization could delay standard treatment.
-   2. **[NCT05929768](https://clinicaltrials.gov/study/NCT05929768): Phase 3 study of shorter anthracycline-free chemo-immunotherapy.** This study compares a shorter pembrolizumab-based regimen without anthracyclines with the usual anthracycline-containing approach and had recruiting Los Angeles sites, including Cedars-Sinai. The trial team must confirm the tumour and node stage, heart function, autoimmune history, and that no treatment has started.
+1. **Questions you might bring to the oncologist.** These are the ones most likely to shape the plan. Pick what feels useful.
+   1. What is the confirmed stage, and is the plan chemotherapy plus pembrolizumab before surgery?
+   2. What still needs to happen before day one (heart testing, bloodwork, extra imaging), and what's the target start date?
+   3. Has inherited genetic testing (a blood or saliva test for BRCA1 and BRCA2, genes that raise cancer risk and can change treatment) been ordered, and will you wait for results before planning surgery?
+   4. Could I get a copy of the pathology report with the exact ER and PR percentages?
+   5. Am I a candidate for NCT05929768 or NCT06353997, and could screening happen before treatment starts?
+2. **Bring up the genetic test if it hasn't been ordered.** Triple-negative disease at 46 is a standard reason to test. A positive result can add a year of olaparib (a daily pill that blocks DNA repair in BRCA-related cancers) after surgery, and can change the lumpectomy-versus-mastectomy decision. It's a common test in this situation, so it's reasonable to bring up.
+3. **Decide whether to screen for a trial before treatment starts.** Both keep the standard pembrolizumab backbone, so neither means giving up proven care. Eligibility is confirmed only by the site.
+   1. **[NCT05929768](https://clinicaltrials.gov/study/NCT05929768), shorter chemo-immunotherapy (phase 3, recruiting at Kaiser LA, Kaiser West LA, Cedars-Sinai).** Tests whether dropping doxorubicin (an older chemotherapy with heart-related side effects) gives the same result with less chemo. Fits your stage on paper. Confirm: ER and PR under 5 percent on your pathology, and comfort with random assignment.
+   2. **[NCT06353997](https://clinicaltrials.gov/study/NCT06353997), INBRX-106 plus pembrolizumab (phase 2, recruiting at Ellison Institute, LA).** Adds INBRX-106 (an experimental immunotherapy) ahead of standard treatment. Earlier-phase, so side effects are less known. Confirm: tumor visible on ultrasound at 1 cm or more (yours is), and whether it delays standard treatment.
+   3. **Later, after surgery:** [NCT05812807](https://clinicaltrials.gov/study/NCT05812807) and [NCT05633654](https://clinicaltrials.gov/study/NCT05633654) enroll based on what's found in the removed tissue. Ask the team to revisit them then.
 
 #### What we know
 
-1. **The biopsy shows invasive ductal carcinoma with triple-negative biomarkers.** The breast mass measures 3.2 cm, and a sampled underarm lymph node contains cancer. Current imaging has not found cancer in distant organs, but the oncology team makes the final stage determination.
+1. **Invasive breast cancer with triple-negative biomarkers.** The breast mass is 3.2 cm and one sampled underarm node contains cancer. Imaging found no spread to distant organs. That pattern usually means stage II; the oncology team confirms.
 2. **Medical terms that affect treatment:**
-   1. **ER and PR negative:** ER and PR are hormone receptors. Negative results mean hormone-blocking treatments such as tamoxifen or aromatase inhibitors are unlikely to help this cancer.
-   2. **HER2 negative:** HER2 is a growth-promoting protein. A negative result means standard HER2-targeted drugs are not expected to be part of the initial plan.
-   3. **Triple-negative breast cancer:** This means the cancer is ER-negative, PR-negative, and HER2-negative. Chemotherapy is a central treatment, and immunotherapy may be added in some early-stage or metastatic settings.
-   4. **PD-L1:** This marker can affect immunotherapy decisions in metastatic triple-negative breast cancer. It does not control every immunotherapy decision in early-stage disease, so its meaning depends on the treatment setting.
-   5. **Stage II:** The cancer is in the breast and may involve nearby lymph nodes, but no distant spread has been found. The oncology team confirms the exact stage.
-3. **Care timeline:**
-   1. **August 4:** A diagnostic mammogram and ultrasound found a 3.2 cm breast mass and a suspicious underarm lymph node.
-   2. **August 8:** Biopsies confirmed invasive ductal carcinoma in the breast and cancer in the sampled lymph node.
-   3. **August 15:** Staging imaging found no distant spread, moving the immediate decision to treatment planning and optional trial screening.
+   1. **ER and PR negative:** Hormone receptors. Negative means hormone-blocking pills such as tamoxifen won't help this cancer.
+   2. **HER2 negative:** A growth-promoting protein. Negative means HER2-targeted drugs aren't part of the initial plan.
+   3. **Triple-negative breast cancer:** All three markers negative. Chemotherapy is the backbone. In stage II and III disease, adding pembrolizumab before and after surgery raised the rate of complete tumor disappearance at surgery from 51 to 65 percent and improved three-year event-free survival (alive without the cancer coming back) from 77 to 85 percent in the KEYNOTE-522 trial. Serious side effects were more common with pembrolizumab (33 versus 20 percent), which is the main tradeoff to talk through.
+   4. **PD-L1:** A protein on the tumor that matters for immunotherapy decisions in metastatic (spread to other organs) disease. In early-stage disease pembrolizumab helped regardless of PD-L1, so this result likely doesn't change the plan.
+   5. **BRCA1 and BRCA2:** Inherited DNA-repair genes, more often involved in triple-negative disease. A positive result opens the door to olaparib after surgery and affects surgery and family screening. Not yet tested.
+   6. **Pathologic complete response (pCR):** No cancer left in the breast or nodes at surgery. Some later treatments and trials depend on it.
+
+#### Care log
+
+1. **8/22:** Brief created. Open questions for the oncology visit: stage confirmation, BRCA testing, trial screening.
+2. **8/15:** Staging imaging found no distant spread. The decision moved to treatment sequencing and optional trial screening.
+3. **8/8:** Biopsies confirmed invasive breast cancer in the breast and the node. Receptors came back triple-negative.
+4. **8/4:** Diagnostic mammogram and ultrasound found a 3.2 cm breast mass and a suspicious underarm lymph node.
 
 ## Trusted medical sources
 
