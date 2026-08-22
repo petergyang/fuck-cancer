@@ -17,52 +17,6 @@ The last thing a patient or caregiver needs is a pile of confusing medical terms
 5. **Finds focused second opinions.** It returns up to three specialists or centers that fit the cancer type, disease setting, location, and practical constraints.
 6. **Keeps the family aligned.** It creates one concise brief and updates it when new results or treatment decisions arrive.
 
-## The brief
-
-Every report has no more than three sections:
-
-1. **Current priority.** What needs to happen next and why.
-2. **What to do next.** The most useful actions, questions, trials, or second opinions in priority order.
-3. **What we know.** A plain-English explanation of the diagnosis, tests, biomarkers, stage, treatment history, and meaningful uncertainty.
-
-Every list in the brief is numbered, including medical definitions and trial candidates. “What to do next” contains no more than three items. Each item uses a bold stem followed by two or three useful sentences. Sources and the research date appear in a compact footer.
-
-The canonical output is one Markdown document in chat. If Google Drive is connected, the user can explicitly ask the agent to copy or update the same brief in a Google Doc. The skill does not assume a connector, automate a signed-in browser without permission, or create a separate tracking system.
-
-## Sample output
-
-This fictional example shows the complete format. The patient is 46, lives near Los Angeles, and has newly diagnosed stage II triple-negative breast cancer. Treatment has not started.
-
-### Breast Cancer Care Brief
-
-#### Current priority
-
-Confirm whether the cancer is stage II and decide whether to start the recommended treatment before surgery or complete clinical-trial screening first. The biopsy shows triple-negative breast cancer, and imaging has not found distant spread, but the oncology team still needs to confirm how the involved underarm lymph node affects the stage and treatment plan.
-
-#### What to do next
-
-1. **Confirm the stage and baseline workup.** Ask the oncologist to confirm the tumour size, whether nearby lymph nodes are involved, and that no distant spread was found. Ask whether any additional imaging, heart testing, bloodwork, or inherited genetic testing is needed before treatment, and get a date for anything still pending.
-2. **Discuss the standard treatment before surgery.** NCI's current evidence summary describes chemotherapy plus pembrolizumab before surgery, followed by continued pembrolizumab after surgery, for some patients with stage II or III triple-negative breast cancer. Ask why this regimen fits, its major immune and chemotherapy risks, and how the surgical pathology would affect treatment afterward.
-3. **Ask about two relevant clinical trials before starting treatment.** These trials are screening candidates:
-   1. **[NCT06966700](https://clinicaltrials.gov/study/NCT06966700): Phase 3 study of sacituzumab tirumotecan in high-risk early breast cancer.** This study includes previously untreated, nonmetastatic triple-negative or hormone-receptor-low/HER2-negative breast cancer and had a recruiting site in Burbank, California. The trial team must confirm the exact T and N stage, performance status, organ function, prior procedures, and whether randomization could delay standard treatment.
-   2. **[NCT05929768](https://clinicaltrials.gov/study/NCT05929768): Phase 3 study of shorter anthracycline-free chemo-immunotherapy.** This study compares a shorter pembrolizumab-based regimen without anthracyclines with the usual anthracycline-containing approach and had recruiting Los Angeles sites, including Cedars-Sinai. The trial team must confirm the tumour and node stage, heart function, autoimmune history, and that no treatment has started.
-
-#### What we know
-
-1. **The biopsy shows invasive ductal carcinoma with triple-negative biomarkers.** The breast mass measures 3.2 cm, and a sampled underarm lymph node contains cancer. Current imaging has not found cancer in distant organs, but the oncology team makes the final stage determination.
-2. **Medical terms that affect treatment:**
-   1. **ER and PR negative:** ER and PR are hormone receptors. Negative results mean hormone-blocking treatments such as tamoxifen or aromatase inhibitors are unlikely to help this cancer.
-   2. **HER2 negative:** HER2 is a growth-promoting protein. A negative result means standard HER2-targeted drugs are not expected to be part of the initial plan.
-   3. **Triple-negative breast cancer:** This means the cancer is ER-negative, PR-negative, and HER2-negative. Chemotherapy is a central treatment, and immunotherapy may be added in some early-stage or metastatic settings.
-   4. **PD-L1:** This marker can affect immunotherapy decisions in metastatic triple-negative breast cancer. It does not control every immunotherapy decision in early-stage disease, so its meaning depends on the treatment setting.
-   5. **Stage II:** The cancer is in the breast and may involve nearby lymph nodes, but no distant spread has been found. The oncology team confirms the exact stage.
-   6. **Treatment before surgery:** Doctors call this neoadjuvant treatment. It can shrink the tumour and show how strongly the cancer responds, which may guide treatment after surgery.
-   7. **Inherited genetic testing:** Doctors call this germline testing. It looks for inherited changes such as BRCA1 or BRCA2 that may affect treatment and relatives' cancer risk.
-   8. **Trial screening terms:** T describes the tumour, N describes nearby lymph nodes, performance status describes daily functioning, and organ function usually refers to blood tests and other checks. Randomization means a computer assigns the treatment group by chance.
-   9. **Anthracyclines:** These are chemotherapy drugs that include doxorubicin. They can treat breast cancer but can also affect the heart, which is why one trial is studying a regimen that avoids them.
-
-*Updated August 22, 2026. Sources: [NCI Breast Cancer Treatment PDQ](https://www.cancer.gov/types/breast/hp/breast-treatment-pdq), [ClinicalTrials.gov NCT06966700](https://clinicaltrials.gov/study/NCT06966700), and [ClinicalTrials.gov NCT05929768](https://clinicaltrials.gov/study/NCT05929768). Trial records and individual-site status were retrieved August 22, 2026 and can change.*
-
 ## How to install /fuck-cancer
 
 The easiest way to install the skill is to paste this into ChatGPT, Claude Code, or your favorite agent:
@@ -104,6 +58,46 @@ Share new information as it arrives:
 ```
 
 The skill asks only for missing information that could change the immediate guidance. It does not make you complete a long intake form.
+
+## The output: A practical, concise brief for you and your family
+
+Every report has no more than three sections:
+
+1. **Current priority.** What needs to happen next and why.
+2. **What to do next.** The most useful actions, questions, trials, or second opinions in priority order.
+3. **What we know.** A plain-English explanation of the diagnosis, tests, biomarkers, stage, treatment history, and meaningful uncertainty.
+
+Every list in the brief is numbered, including medical definitions and trial candidates. “What to do next” contains no more than three items. Each item uses a bold stem followed by two or three useful sentences. Sources and the research date appear in a compact footer.
+
+The canonical output is one Markdown document in chat. If Google Drive is connected, the user can explicitly ask the agent to copy or update the same brief in a Google Doc. The skill does not assume a connector, automate a signed-in browser without permission, or create a separate tracking system.
+
+## Sample brief
+
+This fictional example shows the complete format. The patient is 46, lives near Los Angeles, and has newly diagnosed stage II triple-negative breast cancer. Treatment has not started.
+
+### Breast Cancer Care Brief
+
+#### Current priority
+
+Confirm whether the cancer is stage II and decide whether to start the recommended treatment before surgery or complete clinical-trial screening first. The biopsy shows triple-negative breast cancer, and imaging has not found distant spread, but the oncology team still needs to confirm how the involved underarm lymph node affects the stage and treatment plan.
+
+#### What to do next
+
+1. **Confirm the stage and baseline workup.** Ask the oncologist to confirm the tumour size, whether nearby lymph nodes are involved, and that no distant spread was found. Ask whether any additional imaging, heart testing, bloodwork, or inherited genetic testing is needed before treatment, and get a date for anything still pending.
+2. **Discuss the standard treatment before surgery.** NCI's current evidence summary describes chemotherapy plus pembrolizumab before surgery, followed by continued pembrolizumab after surgery, for some patients with stage II or III triple-negative breast cancer. Ask why this regimen fits, its major immune and chemotherapy risks, and how the surgical pathology would affect treatment afterward.
+3. **Ask about two relevant clinical trials before starting treatment.** These trials are screening candidates:
+   1. **[NCT06966700](https://clinicaltrials.gov/study/NCT06966700): Phase 3 study of sacituzumab tirumotecan in high-risk early breast cancer.** This study includes previously untreated, nonmetastatic triple-negative or hormone-receptor-low/HER2-negative breast cancer and had a recruiting site in Burbank, California. The trial team must confirm the exact T and N stage, performance status, organ function, prior procedures, and whether randomization could delay standard treatment.
+   2. **[NCT05929768](https://clinicaltrials.gov/study/NCT05929768): Phase 3 study of shorter anthracycline-free chemo-immunotherapy.** This study compares a shorter pembrolizumab-based regimen without anthracyclines with the usual anthracycline-containing approach and had recruiting Los Angeles sites, including Cedars-Sinai. The trial team must confirm the tumour and node stage, heart function, autoimmune history, and that no treatment has started.
+
+#### What we know
+
+1. **The biopsy shows invasive ductal carcinoma with triple-negative biomarkers.** The breast mass measures 3.2 cm, and a sampled underarm lymph node contains cancer. Current imaging has not found cancer in distant organs, but the oncology team makes the final stage determination.
+2. **Medical terms that affect treatment:**
+   1. **ER and PR negative:** ER and PR are hormone receptors. Negative results mean hormone-blocking treatments such as tamoxifen or aromatase inhibitors are unlikely to help this cancer.
+   2. **HER2 negative:** HER2 is a growth-promoting protein. A negative result means standard HER2-targeted drugs are not expected to be part of the initial plan.
+   3. **Triple-negative breast cancer:** This means the cancer is ER-negative, PR-negative, and HER2-negative. Chemotherapy is a central treatment, and immunotherapy may be added in some early-stage or metastatic settings.
+   4. **PD-L1:** This marker can affect immunotherapy decisions in metastatic triple-negative breast cancer. It does not control every immunotherapy decision in early-stage disease, so its meaning depends on the treatment setting.
+   5. **Stage II:** The cancer is in the breast and may involve nearby lymph nodes, but no distant spread has been found. The oncology team confirms the exact stage.
 
 ## Trusted medical sources
 
