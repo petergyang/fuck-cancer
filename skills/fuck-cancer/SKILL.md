@@ -45,6 +45,8 @@ Use the official ClinicalTrials.gov API rather than search snippets. When the bu
 
     python3 scripts/search_trials.py --condition "Cancer type" --terms "stage, biomarker, or treatment setting" --country "Country" [--state "State or province"] [--city "City"]
 
+The script expands common abbreviations such as USA or CA, previews long eligibility criteria (rerun with `--full-criteria` for the full text), and labels each site's recruitment status, including sites whose status the record does not list. Read the labels rather than treating every result as an open door.
+
 Never include names, birth dates, record numbers, or other identifiers in an API query.
 
 1. Search with the diagnosis, stage or treatment setting, biomarkers, prior treatments, and realistic location when known.
