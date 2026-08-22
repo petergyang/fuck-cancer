@@ -41,7 +41,7 @@ Relate every option to the patient's cancer type, stage, biomarkers, prior treat
 
 ## Find clinical trials
 
-Use the official ClinicalTrials.gov API rather than search snippets. When the bundled helper is available, run:
+Use the official ClinicalTrials.gov API rather than search snippets. When the bundled helper is available, run the command below. It accepts common U.S. and Canadian location abbreviations and orders matches by the supplied condition and terms, treatment focus, phase, recruitment status, and recency.
 
     python3 scripts/search_trials.py --condition "Cancer type" --terms "stage, biomarker, or treatment setting" --country "Country" [--state "State or province"] [--city "City"]
 

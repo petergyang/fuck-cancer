@@ -125,8 +125,9 @@ The skill supports decisions with current evidence. It does not diagnose cancer,
 ## What's inside
 
 1. [`SKILL.md`](skills/fuck-cancer/SKILL.md) contains the complete care-navigation and research workflow.
-2. [`search_trials.py`](skills/fuck-cancer/scripts/search_trials.py) searches ClinicalTrials.gov API v2 and keeps only locations with an open site status.
-3. [`openai.yaml`](skills/fuck-cancer/agents/openai.yaml) contains the Codex skill metadata.
+2. [`search_trials.py`](skills/fuck-cancer/scripts/search_trials.py) searches ClinicalTrials.gov API v2, normalizes common U.S. and Canadian location abbreviations, keeps open sites, and ranks likely matches first.
+3. [`test_search_trials.py`](skills/fuck-cancer/tests/test_search_trials.py) covers location normalization, pagination, and relevance ordering.
+4. [`openai.yaml`](skills/fuck-cancer/agents/openai.yaml) contains the Codex skill metadata.
 
 The skill does not require an account, database, or API key. The trial-search helper uses only Python's standard library.
 
