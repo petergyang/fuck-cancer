@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fuck Cancer"
+  short_description: "Make cancer care clearer and actionable"
+  default_prompt: "Use $fuck-cancer to turn my situation into a clear, practical next-step brief."
