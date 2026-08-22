@@ -69,7 +69,7 @@ Start at Current priority by default. Add at most one plain opening sentence onl
 
 ### Current priority
 
-Two short paragraphs. The first states the decision in front of the family and the best-studied path for it. The second covers timing: what closes, what is time-sensitive, and the specific trials or options by name. Never write "two trials" without naming them.
+Put the brief's date in the heading: `#### Current priority - 8/22`. Open with one sentence naming the next concrete event and its date ("Next week's oncologist visit on 8/29 will likely discuss treatment."). Then two short paragraphs: the decision in front of the family and the best-studied path for it, followed by timing: what closes, what is time-sensitive, and the specific trials or options by name. Never write "two trials" without naming them.
 
 ### What to do next
 
@@ -77,7 +77,7 @@ A numbered list in priority order with no more than three items. Each item start
 
 Include only useful actions now: appointment questions, missing tests or records, current options, clinical trials, up to three second opinions, or practical support that removes an immediate burden.
 
-When the brief includes appointment questions, make them one item with a numbered sublist of no more than five questions, phrased as suggestions the user can pick from ("Questions you might bring to the oncologist"). Do not tell the user they are entitled to answers or that good teams expect the list; keep the tone of an offer.
+When the brief includes appointment questions, make them one item with a numbered sublist of no more than five questions, phrased as suggestions the user can pick from ("Questions you might bring to the oncologist"). Write each question the way the patient would say it out loud, short and in first person: "I found two trials that might be relevant, NCT05929768 and NCT06353997. Is it worth screening for these?" Do not tell the user they are entitled to answers or that good teams expect the list; keep the tone of an offer.
 
 Cap each trial candidate at three sentences: what it tests and where it is open, why it may fit, and what the site must confirm. Trials that enroll only at a later stage get one shared sentence telling the family when to revisit them. If trials may matter but the pathology, stage, biomarkers, or treatment history are not specific enough, include **Relevant clinical trials** as an item and say exactly what is needed before rerunning `/fuck-cancer`.
 
@@ -85,7 +85,7 @@ Cap each trial candidate at three sentences: what it tests and where it is open,
 
 A numbered list of bold-stem items with two or three sentences each. Combine the finding, its meaning, and meaningful uncertainty rather than forcing separate labels.
 
-When several biomarkers or staging terms matter, use a nested numbered list under **Medical terms that affect treatment**. For each term, explain what it means and which treatment category it may open or rule out without claiming the treatment is right for this patient.
+When several biomarkers or staging terms matter, use a nested numbered list under **Medical terms that might affect treatment**. For each term, give the general meaning in a few words, then tie it to this patient's own result ("Your report is negative on both, so hormone-blocking pills won't help this cancer"). Say which treatment category it may open or rule out without claiming the treatment is right for this patient. Keep each entry to two or three sentences.
 
 ### Care log
 
@@ -95,7 +95,7 @@ A numbered list, newest first, with dates written as `M/D` (add the year only wh
 
 The first time any drug, test, or medical term appears anywhere in the brief, add a few-word explainer in parentheses: "pembrolizumab (an immunotherapy that helps the immune system attack the cancer)", "olaparib (a daily pill that blocks DNA repair in BRCA-related cancers)". Do not rely on a link or a later definition; the reader should never have to leave the page to understand a sentence. Keep the explainers short and plain.
 
-Do not add a sources footer, research date, or disclaimer to the brief. Keep source links inline where a claim needs one, such as the trial link on an NCT number. Omit patient identifiers by default.
+Do not add a sources footer, research date, or disclaimer to the brief. Put sources inline instead: link every NCT number wherever it appears, and end any standard-of-care or evidence claim with a short `([source](url))` link to the official page it came from. Omit patient identifiers by default.
 
 ## Share the brief
 

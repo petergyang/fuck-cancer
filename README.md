@@ -63,12 +63,12 @@ The skill asks only for missing information that could change the immediate guid
 
 Every brief has four sections:
 
-1. **Current priority.** Two short paragraphs: the decision in front of the family and the best-studied path, then what is time-sensitive, with specific trials or options named.
+1. **Current priority.** Dated in the heading. The next concrete event, the decision in front of the family and the best-studied path, then what is time-sensitive, with specific trials or options named and linked.
 2. **What to do next.** No more than three actions in priority order: questions to bring to the oncologist (at most five, offered as suggestions), missing tests, current options, trials, second opinions, or practical support.
-3. **What we know.** A plain-English explanation of the diagnosis, tests, biomarkers, stage, and meaningful uncertainty.
+3. **What we know.** A plain-English explanation of the diagnosis, tests, biomarkers, stage, and meaningful uncertainty, tied to the patient's own results.
 4. **Care log.** A dated history, newest first, including the day the brief was created or updated.
 
-Every list is numbered. Each item uses a bold stem followed by two or three sentences, and each trial candidate is capped at three sentences. Any drug or medical term gets a few-word explainer in parentheses the first time it appears, so nobody has to leave the page to understand a sentence. There is no sources footer or disclaimer.
+Every list is numbered. Each item uses a bold stem followed by two or three sentences, and each trial candidate is capped at three sentences. Any drug or medical term gets a few-word explainer in parentheses the first time it appears, so nobody has to leave the page to understand a sentence. Sources sit inline as short links on the claims they support; there is no footer or disclaimer.
 
 The canonical output is one Markdown document in chat. If Google Drive is connected, the user can explicitly ask the agent to copy or update the same brief in a Google Doc. The skill does not assume a connector, automate a signed-in browser without permission, or create a separate tracking system.
 
@@ -78,20 +78,22 @@ This fictional example shows the complete format. The patient is 46, lives near 
 
 ### Breast Cancer Care Brief
 
-#### Current priority
+#### Current priority - 8/22
 
-Next week's visit sets the order of treatment. For stage II triple-negative breast cancer (a type that doesn't respond to hormone or HER2-targeted drugs) with one involved lymph node, the best-studied path is chemotherapy plus pembrolizumab (an immunotherapy that helps your immune system attack the cancer) before surgery, then surgery, then more pembrolizumab.
+Next week's oncologist visit on 8/29 will likely discuss treatment.
 
-Two Los Angeles trials, NCT05929768 at Kaiser and Cedars-Sinai and NCT06353997 at the Ellison Institute, build on that same path but only take patients who have not started treatment. If either interests you, ask about screening at this visit. Once chemotherapy begins, that door closes.
+For stage II triple-negative breast cancer (a type that doesn't respond to hormone or HER2-targeted drugs) with one involved lymph node, the best-studied path is chemotherapy plus pembrolizumab (an immunotherapy that helps your immune system attack the cancer) before surgery, then surgery, then more pembrolizumab ([source](https://www.cancer.gov/types/breast/hp/breast-treatment-pdq)).
+
+Two Los Angeles trials, [NCT05929768](https://clinicaltrials.gov/study/NCT05929768) at Kaiser and Cedars-Sinai and [NCT06353997](https://clinicaltrials.gov/study/NCT06353997) at the Ellison Institute, build on that same path but only take patients who have not started treatment. If either interests you, ask about screening at this visit. Once chemotherapy begins, that door closes.
 
 #### What to do next
 
 1. **Questions you might bring to the oncologist.** These are the ones most likely to shape the plan. Pick what feels useful.
-   1. What is the confirmed stage, and is the plan chemotherapy plus pembrolizumab before surgery?
+   1. What is the confirmed stage and plan? Is it chemotherapy plus pembrolizumab?
    2. What still needs to happen before day one (heart testing, bloodwork, extra imaging), and what's the target start date?
-   3. Has inherited genetic testing (a blood or saliva test for BRCA1 and BRCA2, genes that raise cancer risk and can change treatment) been ordered, and will you wait for results before planning surgery?
+   3. Has inherited genetic testing (e.g., a blood or saliva test for BRCA1 and BRCA2, genes that raise cancer risk and can change treatment) been ordered, and will you wait for results before planning surgery?
    4. Could I get a copy of the pathology report with the exact ER and PR percentages?
-   5. Am I a candidate for NCT05929768 or NCT06353997, and could screening happen before treatment starts?
+   5. I found two clinical trials that might be relevant - NCT05929768 or NCT06353997 - is it worth screening for these?
 2. **Bring up the genetic test if it hasn't been ordered.** Triple-negative disease at 46 is a standard reason to test. A positive result can add a year of olaparib (a daily pill that blocks DNA repair in BRCA-related cancers) after surgery, and can change the lumpectomy-versus-mastectomy decision. It's a common test in this situation, so it's reasonable to bring up.
 3. **Decide whether to screen for a trial before treatment starts.** Both keep the standard pembrolizumab backbone, so neither means giving up proven care. Eligibility is confirmed only by the site.
    1. **[NCT05929768](https://clinicaltrials.gov/study/NCT05929768), shorter chemo-immunotherapy (phase 3, recruiting at Kaiser LA, Kaiser West LA, Cedars-Sinai).** Tests whether dropping doxorubicin (an older chemotherapy with heart-related side effects) gives the same result with less chemo. Fits your stage on paper. Confirm: ER and PR under 5 percent on your pathology, and comfort with random assignment.
@@ -101,13 +103,13 @@ Two Los Angeles trials, NCT05929768 at Kaiser and Cedars-Sinai and NCT06353997 a
 #### What we know
 
 1. **Invasive breast cancer with triple-negative biomarkers.** The breast mass is 3.2 cm and one sampled underarm node contains cancer. Imaging found no spread to distant organs. That pattern usually means stage II; the oncology team confirms.
-2. **Medical terms that affect treatment:**
-   1. **ER and PR negative:** Hormone receptors. Negative means hormone-blocking pills such as tamoxifen won't help this cancer.
-   2. **HER2 negative:** A growth-promoting protein. Negative means HER2-targeted drugs aren't part of the initial plan.
-   3. **Triple-negative breast cancer:** All three markers negative. Chemotherapy is the backbone. In stage II and III disease, adding pembrolizumab before and after surgery raised the rate of complete tumor disappearance at surgery from 51 to 65 percent and improved three-year event-free survival (alive without the cancer coming back) from 77 to 85 percent in the KEYNOTE-522 trial. Serious side effects were more common with pembrolizumab (33 versus 20 percent), which is the main tradeoff to talk through.
-   4. **PD-L1:** A protein on the tumor that matters for immunotherapy decisions in metastatic (spread to other organs) disease. In early-stage disease pembrolizumab helped regardless of PD-L1, so this result likely doesn't change the plan.
-   5. **BRCA1 and BRCA2:** Inherited DNA-repair genes, more often involved in triple-negative disease. A positive result opens the door to olaparib after surgery and affects surgery and family screening. Not yet tested.
-   6. **Pathologic complete response (pCR):** No cancer left in the breast or nodes at surgery. Some later treatments and trials depend on it.
+2. **Medical terms that might affect treatment:**
+   1. **ER and PR negative:** Hormone receptors. Since the report is negative on both, hormone-blocking pills such as tamoxifen won't help this cancer.
+   2. **HER2 negative:** A growth-promoting protein. Your report is negative, so HER2-targeted drugs aren't part of the initial plan.
+   3. **Triple-negative breast cancer:** All three of your markers are negative, which puts you in this group. Chemotherapy is the backbone. For stage II and III disease like yours, adding pembrolizumab before and after surgery raised the rate of complete tumor disappearance at surgery from 51 to 65 percent and improved three-year event-free survival (alive without the cancer coming back) from 77 to 85 percent in the KEYNOTE-522 trial. Serious side effects were more common with pembrolizumab (33 versus 20 percent), which is the main tradeoff to talk through.
+   4. **PD-L1:** A protein on the tumor that matters for immunotherapy decisions in metastatic (spread to other organs) disease. Your cancer is early-stage, where pembrolizumab helped regardless of PD-L1, so your result likely doesn't change the plan.
+   5. **BRCA1 and BRCA2:** Inherited DNA-repair genes, more often involved in triple-negative disease. You haven't been tested yet. A positive result would open the door to olaparib after surgery and affect your surgery choice and family screening.
+   6. **Pathologic complete response (pCR):** No cancer left in the breast or nodes at surgery. Whether you reach it after pre-surgery treatment will shape some of your later options and trials.
 
 #### Care log
 
