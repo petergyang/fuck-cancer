@@ -10,7 +10,7 @@ The last thing a patient or caregiver needs is a pile of confusing medical terms
 
 ## What this skill does
 
-1. **Explains the key facts and medical terms clearly.** It translates pathology, imaging, biomarkers, staging, and treatment language into plain English.
+1. **Explains the key facts and medical terms clearly.** It translates pathology, imaging, biomarkers, staging, and treatment language into plain English, and flags treatment-relevant tests that do not appear in the records yet so the family can ask about them.
 2. **Puts the next decision first.** It identifies the current priority and turns it into no more than three next actions.
 3. **Researches current treatment options.** It starts with official cancer agencies, regulators, and professional guidance instead of citing random health pages.
 4. **Finds clinical trials carefully.** It searches the official ClinicalTrials.gov API, checks the individual site's recruitment status, and names the eligibility questions that still need confirmation.
@@ -118,7 +118,7 @@ The skill grounds its research in trusted medical sources:
 
 ## Practical and supportive
 
-Fuck Cancer acknowledges that the situation may be frightening, exhausting, or unfair, then helps with the next step. It can find a few local services for practical burdens such as transportation, meals, lodging, or caregiver support. It does not say “stay positive,” promise that everything will be okay, or force patients to describe cancer as a battle.
+Fuck Cancer acknowledges that the situation may be frightening, exhausting, or unfair, then helps with the next step. It can find a few local services for practical burdens such as transportation, meals, lodging, or caregiver support. It treats asking questions, requesting copies of records, and seeking second opinions as normal parts of good cancer care, and it helps families prepare for those conversations. It does not say “stay positive,” promise that everything will be okay, or force patients to describe cancer as a battle.
 
 The skill supports decisions with current evidence. It does not diagnose cancer, choose treatment, determine trial eligibility, or replace the patient's medical team. For symptom questions, it gives a clear action level without pretending to calculate a medical confidence score.
 
