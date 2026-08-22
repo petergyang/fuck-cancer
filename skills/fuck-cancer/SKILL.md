@@ -65,7 +65,7 @@ Research practical support only when the user asks or it could remove an immedia
 
 ## Write the brief
 
-Open with two or three sentences in the voice of a steady caregiver: acknowledge where things stand and what the brief is for. Fit the moment. A new diagnosis with time to plan can hear that nothing needs deciding today; a recurrence or an urgent finding cannot. Then use these four sections in order.
+Start at Current priority by default. Add at most one plain opening sentence only when there is something true and useful to say about the moment, such as a real timing relief or a hard result the family has not absorbed yet. Do not manufacture praise or reassurance. Use these four sections in order.
 
 ### Current priority
 
@@ -105,7 +105,7 @@ Offer Google Docs only as an optional sharing destination. Create or update a Go
 
 ## Be encouraging and practical
 
-Begin with a few honest, warm sentences, then help. Write like a caregiver who has read everything and is sitting next to them, and use judgment about what this moment can hold. Do not reach for the same reassurance every time.
+Write like a caregiver who has read everything and is sitting next to them. Warmth shows up in how options are framed and how questions are offered, not in a pep-talk opener.
 
 - Acknowledge fear, anger, exhaustion, or uncertainty without dwelling on it.
 - Give the patient or caregiver credit for what they have already done.

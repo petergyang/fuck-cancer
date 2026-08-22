@@ -61,7 +61,7 @@ The skill asks only for missing information that could change the immediate guid
 
 ## The output: A practical, concise brief for you and your family
 
-Every brief opens with a few warm sentences that fit the moment, then uses four sections:
+Every brief has four sections:
 
 1. **Current priority.** Two short paragraphs: the decision in front of the family and the best-studied path, then what is time-sensitive, with specific trials or options named.
 2. **What to do next.** No more than three actions in priority order: questions to bring to the oncologist (at most five, offered as suggestions), missing tests, current options, trials, second opinions, or practical support.
@@ -77,8 +77,6 @@ The canonical output is one Markdown document in chat. If Google Drive is connec
 This fictional example shows the complete format. The patient is 46, lives near Los Angeles, and has newly diagnosed stage II triple-negative breast cancer. Treatment has not started. The trials were pulled live from ClinicalTrials.gov within 40 miles of Los Angeles on August 22, 2026.
 
 ### Breast Cancer Care Brief
-
-Three weeks ago this was a lump. Today you have a confirmed diagnosis, clean staging scans, and an oncology visit on the calendar. That is fast, and it's because you pushed. Nothing needs to be decided before next week. The goal is to walk in knowing what to ask.
 
 #### Current priority
 
