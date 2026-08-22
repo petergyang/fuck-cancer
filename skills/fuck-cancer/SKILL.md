@@ -25,7 +25,17 @@ Notice whether you are speaking to the patient or someone supporting them. Do no
 
 ## Research current options
 
-Prefer current professional guidelines, government cancer agencies, regulatory sources, peer-reviewed primary research, and major academic cancer centers. Record the source and access date. Do not use or redistribute unofficial copies of copyrighted guidelines.
+Use this source order so the brief does not rely on random medical pages:
+
+1. Start with current evidence summaries or guidance from an official national cancer agency relevant to the patient's country. NCI's PDQ is the preferred public backbone when no better local source exists, but describe it accurately as an evidence summary rather than a clinical guideline.
+2. Verify drug approval, indication, and labeling with the patient's national regulator, such as the FDA, Health Canada, EMA, MHRA, or TGA. Regulatory approval shows what is authorized; it does not establish the best treatment for one patient.
+3. Use current official publications from relevant professional bodies, such as ASCO, ESMO, CAP, or NICE, when they directly answer the question and are lawfully accessible.
+4. Use peer-reviewed primary research indexed in PubMed for unresolved or emerging questions. Explain when evidence is early, indirect, or from a different disease setting.
+5. Use major academic cancer-center pages for their own services, specialists, or trials, not as the main authority for general treatment claims.
+
+Do not cite search snippets, SEO health sites, unsourced summaries, social posts, or AI-generated medical pages. Do not use or redistribute unofficial copies of copyrighted resources such as UpToDate or NCCN. If the user provides an authorized copy, treat it as user-supplied evidence and identify its date.
+
+Use the NCI Dictionary of Cancer Terms or an equivalent official national source for definitions. For a specific molecular variant, CIViC may supplement the official sources, but identify it as a community-curated knowledgebase and never use it alone to determine treatment or trial eligibility.
 
 Relate every option to the patient's cancer type, stage, biomarkers, prior treatment, health, country, and goals when known. Distinguish evidence from another cancer type or treatment setting. Present a concise numbered list: each item starts with a bold stem and continues with two or three sentences covering why it may matter, the main tradeoff, and what the care team must confirm. Do not recommend a treatment as the answer.
 
@@ -37,12 +47,12 @@ Use the official ClinicalTrials.gov API rather than search snippets. When the bu
 
 Never include names, birth dates, record numbers, or other identifiers in an API query.
 
-- Search with the diagnosis, stage or treatment setting, biomarkers, prior treatments, and realistic location when known.
-- Check both the study's overall status and the individual site's status.
-- Read the actual eligibility criteria. A keyword match does not show that the patient qualifies.
-- Return three to five candidates at most, prioritized by likely relevance and practical access.
-- For each candidate, give the NCT number and link, intervention, phase, open site, retrieval date, why it may fit, and the key eligibility questions still to confirm.
-- Compare a trial with available standard care and mention meaningful travel, visit, cost, or randomization burdens when the record provides them.
+1. Search with the diagnosis, stage or treatment setting, biomarkers, prior treatments, and realistic location when known.
+2. Check both the study's overall status and the individual site's status.
+3. Read the actual eligibility criteria. A keyword match does not show that the patient qualifies.
+4. Return three to five candidates at most, prioritized by likely relevance and practical access.
+5. For each candidate, give the NCT number and link, intervention, phase, open site, retrieval date, why it may fit, and the key eligibility questions still to confirm.
+6. Compare a trial with available standard care and mention meaningful travel, visit, cost, or randomization burdens when the record provides them.
 
 ## Find a second opinion
 
@@ -58,13 +68,23 @@ In two to four sentences, state what needs to happen next, why it matters, and a
 
 ### What to do next
 
-Use a numbered list in priority order. Each item starts with a bold stem and has two or three sentences. Include only useful actions now: missing tests or records, appointment questions, current options, clinical trials, or up to three second opinions.
+Use a numbered list in priority order with no more than three items. Each item starts with a bold stem and has two or three sentences. Use numbered sublists when details are necessary; never use bullets in the brief.
+
+Include only useful actions now: missing tests or records, appointment questions, current options, clinical trials, or up to three second opinions. If trials may matter but the pathology, stage, biomarkers, or treatment history are not specific enough, include **Relevant clinical trials** as an item and say exactly what is needed before rerunning `/fuck-cancer`. Do not fill the space with broad keyword matches.
 
 ### What we know
 
-Explain the medical picture using bold-stem items followed by two or three sentences. Combine the finding, meaning, and meaningful uncertainty rather than forcing separate labels or categories.
+Use a numbered list of bold-stem items followed by two or three sentences. Combine the finding, meaning, and meaningful uncertainty rather than forcing separate labels or categories.
+
+Define unfamiliar medical terms where they first appear. When several biomarkers or staging terms matter, use a nested numbered list under **Medical terms that affect treatment**. For each term, explain what it means and which treatment category it may open or rule out without claiming that the treatment is appropriate for this patient.
 
 Place sources and the last-updated date in a compact footer, not a fourth section. Omit patient identifiers by default.
+
+## Share the brief
+
+The canonical output is one Markdown document returned directly in chat. Do not create multiple trackers or supporting files. If the user asks, save the same content as a single `.md` file.
+
+Offer Google Docs only as an optional sharing destination. Create or update a Google Doc only when a connected tool is available and the user explicitly authorizes sharing the medical information. Browser automation may be used only when the user explicitly requests it and is already signed in; do not promise it as a portable skill capability. Do not create HTML unless the user asks for it.
 
 ## Be encouraging and practical
 
