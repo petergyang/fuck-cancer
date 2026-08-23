@@ -2,7 +2,7 @@
 
 Create a practical brief to help patients and caregivers advocate for themselves: what to do next, the key facts, plain-English medical definitions, and relevant clinical trials.
 
-https://github.com/user-attachments/assets/60c2e8ea-48c6-482e-85a5-4bff7aaefa0d
+https://github.com/user-attachments/assets/9fc8754f-ada3-474c-be65-d4c22f8a2262
 
 ## Problem
 
@@ -12,12 +12,16 @@ The last thing a patient or caregiver needs is a pile of confusing medical terms
 
 ## What this skill does
 
-1. **Explains the key facts and medical terms clearly.** It translates pathology, imaging, biomarkers, staging, and treatment language into plain English, and flags treatment-relevant tests that do not appear in the records yet so the family can ask about them.
-2. **Puts the next decision first.** It identifies the current priority and turns it into no more than three next actions.
-3. **Researches current treatment options.** It starts with official cancer agencies, regulators, and professional guidance instead of citing random health pages.
-4. **Finds clinical trials carefully.** It searches the official ClinicalTrials.gov API, checks the individual site's recruitment status, and names the eligibility questions that still need confirmation.
-5. **Finds focused second opinions.** It returns up to three specialists or centers that fit the cancer type, disease setting, location, and practical constraints.
-6. **Keeps the family aligned.** It creates one concise brief, keeps a dated care log, and finds practical support when the family needs it.
+![Sample Cancer Brief with five callouts: current priority, questions for your doctor, clinical trials near you, medical terms defined, and a care log](assets/sample-brief.png)
+
+This skill creates and updates a source-of-truth brief for patients and caregivers to advocate for themselves. The brief has four sections:
+
+1. **Current priority.** What needs to happen next and when, so the family knows what to focus on.
+2. **What to do next.** No more than three actions, including **questions for your doctor** (five max, phrased the way you'd say them) and **clinical trials near you** (real listings pulled live from the official ClinicalTrials.gov API, with what each site must confirm).
+3. **What we know.** The diagnosis, tests, and results explained in plain English, with **every drug and medical term defined** the first time it appears, so nobody has to leave the page to understand a sentence.
+4. **Care log.** A dated history of visits and results, newest first.
+
+The brief above is a fictional example: the patient is 46, lives near Los Angeles, and has newly diagnosed stage II triple-negative breast cancer. The trials are real listings found within 40 miles of her home. The whole brief is one local Markdown file: no account, no database, no API key.
 
 ## How to install /fuck-cancer
 
@@ -58,25 +62,6 @@ Share new information as it arrives:
 ```text
 /fuck-cancer Update our brief with this new biomarker report.
 ```
-
-The skill asks only for missing information that could change the immediate guidance. It does not make you complete a long intake form.
-
-## The output: A practical, concise brief for you and your family
-
-Every brief has four sections:
-
-1. **Current priority.** Dated in the heading. The next concrete event, the decision in front of the family and the best-studied path, then what is time-sensitive, with specific trials or options named and linked.
-2. **What to do next.** No more than three actions in priority order: questions to bring to the oncologist (at most five, offered as suggestions), missing tests, current options, trials, second opinions, or practical support.
-3. **What we know.** A plain-English explanation of the diagnosis, tests, biomarkers, stage, and meaningful uncertainty, tied to the patient's own results.
-4. **Care log.** A dated history, newest first, including the day the brief was created or updated.
-
-Any drug or medical term gets a few-word explainer in parentheses the first time it appears, so nobody has to leave the page to understand a sentence. Sources sit inline as short links on the claims they support. The brief is one local Markdown document: no account, no database, no API key.
-
-## Sample brief
-
-This fictional example shows the format: the patient is 46, lives near Los Angeles, and has newly diagnosed stage II triple-negative breast cancer. The trials were pulled live from ClinicalTrials.gov within 40 miles of Los Angeles.
-
-![Sample Cancer Brief with its five sections: current priority, questions for your doctor, clinical trials near you, medical terms defined, and a care log](assets/sample-brief.png)
 
 ## Trusted medical sources
 
