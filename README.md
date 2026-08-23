@@ -14,12 +14,13 @@ The last thing a patient or caregiver needs is a pile of confusing medical terms
 
 ![Sample Cancer Brief with five callouts: current priority, questions for your doctor, clinical trials near you, medical terms defined, and a care log](assets/sample-brief.png)
 
-This skill creates and updates a source-of-truth brief for patients and caregivers to advocate for themselves. The brief has four sections:
+This skill creates and updates a source-of-truth brief for patients and caregivers to advocate for themselves. The brief gives you:
 
 1. **Current priority.** What needs to happen next and when, so the family knows what to focus on.
-2. **What to do next.** No more than three actions, including **questions for your doctor** (five max, phrased the way you'd say them) and **clinical trials near you** (real listings pulled live from the official ClinicalTrials.gov API, with what each site must confirm).
-3. **What we know.** The diagnosis, tests, and results explained in plain English, with **every drug and medical term defined** the first time it appears, so nobody has to leave the page to understand a sentence.
-4. **Care log.** A dated history of visits and results, newest first.
+2. **Questions for your doctor.** Five max, phrased the way you'd say them out loud.
+3. **Clinical trials near you.** Real listings pulled live from the official ClinicalTrials.gov API, with what each site must confirm.
+4. **Medical terms, defined.** Every drug and test explained in plain English the first time it appears, so nobody has to leave the page to understand a sentence.
+5. **Care log.** A dated history of visits and results, newest first.
 
 The brief above is a fictional example: the patient is 46, lives near Los Angeles, and has newly diagnosed stage II triple-negative breast cancer. The trials are real listings found within 40 miles of her home. The whole brief is one local Markdown file: no account, no database, no API key.
 
