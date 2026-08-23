@@ -1,6 +1,8 @@
 # Fuck Cancer
 
-Help patients and caregivers navigate cancer with a crisp, practical one-page brief covering what to do next, the key facts, plain-English medical definitions, and relevant clinical trials.
+Create a practical brief to help patients and caregivers advocate for themselves: what to do next, the key facts, plain-English medical definitions, and relevant clinical trials.
+
+https://github.com/user-attachments/assets/REPLACE-WITH-UPLOADED-VIDEO-URL
 
 ## Problem
 
