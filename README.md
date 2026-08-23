@@ -2,7 +2,7 @@
 
 Create a practical brief to help patients and caregivers advocate for themselves: what to do next, the key facts, plain-English medical definitions, and relevant clinical trials.
 
-https://github.com/user-attachments/assets/REPLACE-WITH-UPLOADED-VIDEO-URL
+https://github.com/user-attachments/assets/60c2e8ea-48c6-482e-85a5-4bff7aaefa0d
 
 ## Problem
 
