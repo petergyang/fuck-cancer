@@ -1,6 +1,6 @@
 # Fuck Cancer
 
-Create a practical brief to help patients and caregivers advocate for themselves: what to do next, the key facts, plain-English medical definitions, and relevant clinical trials.
+Creates and updates a practical brief to help patients and caregivers keep track of their case and advocate for themselves.
 
 https://github.com/user-attachments/assets/9fc8754f-ada3-474c-be65-d4c22f8a2262
 
