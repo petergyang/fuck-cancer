@@ -19,10 +19,10 @@ This skill creates and updates a source-of-truth brief for patients and caregive
 1. **Current priority.** What needs to happen next and when, so the family knows what to focus on.
 2. **Questions for your doctor.** Five max, phrased the way you'd say them out loud.
 3. **Clinical trials near you.** Real listings pulled live from the official ClinicalTrials.gov API, with what each site must confirm.
-4. **Medical terms, defined.** Every drug and test explained in plain English the first time it appears, so nobody has to leave the page to understand a sentence.
+4. **Medical terms defined.** Every drug and test explained in plain English the first time it appears, so nobody has to leave the page to understand a sentence.
 5. **Care log.** A dated history of visits and results, newest first.
 
-The brief above is a fictional example: the patient is 46, lives near Los Angeles, and has newly diagnosed stage II triple-negative breast cancer. The trials are real listings found within 40 miles of her home. The whole brief is one local Markdown file: no account, no database, no API key.
+The whole brief is one local Markdown file: no account, no database, no API key.
 
 ## How to install /fuck-cancer
 
@@ -75,11 +75,9 @@ The skill grounds its research in trusted medical sources:
 5. **Medical definitions:** The [NCI Dictionary of Cancer Terms](https://www.cancer.gov/publications/dictionaries/cancer-terms/) or an equivalent official national source.
 6. **Emerging questions:** Peer-reviewed primary research indexed in PubMed, with early or indirect evidence labeled as such.
 
-## Practical and supportive
+## Disclaimer
 
-Fuck Cancer acknowledges that the situation may be frightening, exhausting, or unfair, then helps with the next step. It can find a few local services for practical burdens such as transportation, meals, lodging, or caregiver support. It treats asking questions, requesting copies of records, and seeking second opinions as normal parts of good cancer care, and it helps families prepare for those conversations. It does not say “stay positive,” promise that everything will be okay, or force patients to describe cancer as a battle.
-
-The skill supports decisions with current evidence. It does not diagnose cancer, choose treatment, determine trial eligibility, or replace the patient's medical team. For symptom questions, it gives a clear action level without pretending to calculate a medical confidence score.
+The skill supports decisions with current evidence. It does not diagnose cancer, choose treatment, determine trial eligibility, or replace the patient's medical team.
 
 ## What's inside
 
@@ -89,10 +87,6 @@ The skill supports decisions with current evidence. It does not diagnose cancer,
 4. [`openai.yaml`](skills/fuck-cancer/agents/openai.yaml) contains the Codex skill metadata.
 
 The skill does not require an account, database, or API key. The trial-search helper uses only Python's standard library and requires Python 3.8 or newer.
-
-## Independent project
-
-This is an independent open-source project. It is not affiliated with Fuck Cancer, FCancer, or letsfcancer.com.
 
 ## License
 
