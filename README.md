@@ -24,7 +24,7 @@ This skill creates and updates a source-of-truth brief for patients and caregive
 
 The whole brief is one local Markdown file: no account, no database, no API key.
 
-## How to install /fuck-cancer
+## How to install the skill
 
 The easiest way to install the skill is to paste this into ChatGPT, Claude Code, or your favorite agent:
 
@@ -38,7 +38,7 @@ You can also install it with `npx`:
 npx skills add petergyang/fuck-cancer --skill fuck-cancer --global --yes
 ```
 
-## How to use /fuck-cancer
+## How to use the skill
 
 Start with a brain dump:
 
