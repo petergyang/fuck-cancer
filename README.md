@@ -1,6 +1,6 @@
 # Fuck Cancer
 
-Creates and updates a practical brief to help patients and caregivers keep track of their case and advocate for themselves.
+Creates a practical brief from the first details a family has, then keeps it updated as reports, appointments, and decisions arrive.
 
 https://github.com/user-attachments/assets/9fc8754f-ada3-474c-be65-d4c22f8a2262
 
@@ -14,7 +14,7 @@ The last thing a patient or caregiver needs is a pile of confusing medical terms
 
 ![Sample Cancer Brief with five callouts: current priority, questions for your doctor, clinical trials near you, medical terms defined, and a care log](assets/sample-brief.png)
 
-This skill creates and updates a source-of-truth brief for patients and caregivers to advocate for themselves. The brief gives you:
+This skill creates a source-of-truth brief from whatever you know now, even when most of the workup is still pending. It updates and relinks the same file as the situation changes. The brief gives you:
 
 1. **Current priority.** What needs to happen next and when, so the family knows what to focus on.
 2. **Questions for your doctor.** Five max, phrased the way you'd say them out loud.
@@ -22,7 +22,7 @@ This skill creates and updates a source-of-truth brief for patients and caregive
 4. **Medical terms defined.** Every drug and test explained in plain English the first time it appears, so nobody has to leave the page to understand a sentence.
 5. **Care log.** A dated history of visits and results, newest first.
 
-The whole brief is one local Markdown file: no account, no database, no API key.
+The whole brief is one local Markdown file named `brief.md`: no account, no database, no API key. Unknown decision-relevant details stay visible as placeholders until the family has answers.
 
 ## How to install the skill
 
@@ -83,8 +83,9 @@ The skill supports decisions with current evidence. It does not diagnose cancer,
 
 1. [`SKILL.md`](skills/fuck-cancer/SKILL.md) contains the complete care-navigation and research workflow.
 2. [`search_trials.py`](skills/fuck-cancer/scripts/search_trials.py) searches ClinicalTrials.gov API v2, filters sites by distance from home with `--near LAT,LON`, labels each site's recruitment status, and ranks likely matches first.
-3. [`test_search_trials.py`](tests/test_search_trials.py) covers location normalization, distance filtering, site-status handling, pagination, criteria previews, and relevance ordering.
-4. [`openai.yaml`](skills/fuck-cancer/agents/openai.yaml) contains the Codex skill metadata.
+3. [`eval.md`](skills/fuck-cancer/eval.md) checks that the skill creates, updates, and links the brief while keeping the response caring and concise.
+4. [`test_search_trials.py`](tests/test_search_trials.py) covers location normalization, distance filtering, site-status handling, pagination, criteria previews, and relevance ordering.
+5. [`openai.yaml`](skills/fuck-cancer/agents/openai.yaml) contains the Codex skill metadata.
 
 The skill does not require an account, database, or API key. The trial-search helper uses only Python's standard library and requires Python 3.8 or newer.
 

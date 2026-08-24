@@ -1,4 +1,4 @@
 interface:
   display_name: "Fuck Cancer"
-  short_description: "Cancer next steps, research, and family brief"
-  default_prompt: "Use $fuck-cancer to turn my situation into a clear family brief with next steps, a care timeline, and current options."
+  short_description: "A living cancer brief with clear next steps"
+  default_prompt: "Use $fuck-cancer to create a linked family brief from what I know now, then keep updating the same brief as I share reports, questions, and new results."
