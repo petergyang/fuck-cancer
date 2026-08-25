@@ -1,30 +1,30 @@
 # Fuck Cancer
 
-Creates and updates a practical brief to help patients and caregivers keep track of their case and advocate for themselves.
+Create and update a practical brief to help patients and caregivers advocate for themselves.
 
 https://github.com/user-attachments/assets/551549ee-4afa-4c4e-ae07-6266ec4a129d
 
 ## Problem
 
-Since I published [my mom's cancer story](https://creatoreconomy.so/p/my-mom-survived-breast-cancer-three), I’ve heard from many people supporting a loved one through cancer. Cancer casts a dark cloud over the whole family.
+Since I published [my mom's story](https://creatoreconomy.so/p/my-mom-survived-breast-cancer-three), I’ve heard from many people supporting a loved one through cancer.
 
-The last thing a patient or caregiver needs is a pile of confusing medical terms, hype, and scattered information. They need clear answers to three questions: What should we do next? What are the key facts? What should we ask the care team?
+The last thing a patient or caregiver needs is a pile of confusing medical terms, hype, and scattered information. Instead, they need clear answers to three questions: What should we do next? What do we know? How can we advocate for ourselves?
 
 ## What this skill does
 
 ![Sample family medical brief with patient information, specific next steps, key facts, medical terms, and a compact care log](assets/sample-brief.png)
 
-This skill creates a source-of-truth brief from whatever you know now, even when most of the workup is still pending. It keeps the same destination updated as the situation changes. The brief gives you:
+This skill creates a concise, fact-based brief with 5 sections:
 
-1. **Patient information.** Essential identifiers, family doctor, care team, and contact information.
-2. **What to do next.** Up to three specific actions naming the relevant test, appointment, clinician, and date.
-3. **What we know.** The shortest useful summary of confirmed findings and meaningful uncertainty.
-4. **Medical terms.** Plain-English explanations when several markers, tests, or treatments need clarification.
-5. **Care log.** A compact history using dates such as `8/24` and years such as `2016`.
+1. **Patient information.** Essential identifiers, care team contacts, and more for easy reference during phone calls.
+2. **What to do next.** Up to 3 specific actions naming the next steps.
+3. **What we know.** The shortest useful summary of what's confirmed vs. what's still ambiguous. Can also include research on clinical trials.
+4. **Medical terms.** Plain-English explanations of medical terms and acronyms.
+5. **Care log.** A compact history of recent updates.
 
-Clinical trials, second opinions, and practical support appear under **What to do next** only when they are relevant.
+It creates this brief based on documents and context that you share with it and trusted medical sources like [NCI's PDQ summaries](https://www.cancer.gov/publications/pdq/information-summaries) and the [ClinicalTrials.gov API](https://clinicaltrials.gov/data-api/api).
 
-On first use, the skill asks whether to maintain the brief in a local Markdown file or a shareable Google Doc, unless a source of truth already exists. It updates only that destination and never creates a duplicate tracker.
+On first use, the skill will ask you whether to create the brief in a local Markdown file or a shareable Google Doc. You can run the skill with more context to update the brief over time.
 
 ## How to install the skill
 
