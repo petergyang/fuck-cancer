@@ -1,6 +1,8 @@
 # Fuck Cancer
 
-Creates a practical brief from the first details a family has, then keeps it updated as reports, appointments, and decisions arrive.
+Creates and updates a practical brief to help patients and caregivers keep track of their case and advocate for themselves.
+
+https://github.com/user-attachments/assets/551549ee-4afa-4c4e-ae07-6266ec4a129d
 
 ## Problem
 
@@ -49,7 +51,7 @@ Start with a brain dump:
 Paste or upload a report:
 
 ```text
-/fuck-cancer Explain this report and help me prepare for Friday.
+/fuck-cancer Explain this report and help me prepare for doctor meeting.
 ```
 
 Research trials or second opinions:
