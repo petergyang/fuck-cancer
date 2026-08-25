@@ -20,7 +20,7 @@ Here's what patients and caregivers have told me:
 
 ## What this skill does
 
-![Sample family medical brief with patient information, specific next steps, key facts, medical terms, and a compact care log](assets/sample-brief.png)
+![Sample family medical brief with patient information, what to do next, what we know, medical terms, and a compact care log](assets/sample-brief.png)
 
 This skill creates a concise, fact-based brief with 5 sections:
 

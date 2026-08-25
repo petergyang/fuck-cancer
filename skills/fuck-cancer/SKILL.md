@@ -15,6 +15,8 @@ Use the destination the user names. At the start of later turns, read that sourc
 
 On first use, if no destination exists, ask: `Do you want me to keep this in a local Markdown file, or use a Google Doc that is easier to share?` Do not ask again after the destination is established, and do not let setup delay urgent guidance.
 
+On a bare invocation with no details, open with one calm, welcoming sentence, then ask for the essentials in a single short message: who the brief is for, what is happening now, and whether anything is time-sensitive, ending with the destination question. Never open with the destination question alone or with a form.
+
 - **Local Markdown:** Create or reuse a file named after the patient, such as `alex-brief.md`, in the current workspace.
 - **Google Docs:** Ask for an existing Doc or offer to create one. Use the connected Google Drive or Docs tool. If it is unavailable, ask the user to enable it; do not create a local fallback.
 - **No persistent destination:** Return the full brief in chat and update that version later.
