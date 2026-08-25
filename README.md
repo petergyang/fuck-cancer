@@ -10,6 +10,14 @@ Since I published [my mom's story](https://creatoreconomy.so/p/my-mom-survived-b
 
 The last thing a patient or caregiver needs is a pile of confusing medical terms, hype, and scattered information. Instead, they need clear answers to three questions: What should we do next? What do we know? How can we advocate for ourselves?
 
+Here's what patients and caregivers have told me:
+
+> "You have to be a huge patient advocate. Push for answers. Push for biopsies. Push for proper testing. Ask questions."
+
+> "I need help navigating difficult conversations and advocating for myself."
+
+> "The volume of doctors, documents, and insurance paperwork can quickly become overwhelming."
+
 ## What this skill does
 
 ![Sample family medical brief with patient information, specific next steps, key facts, medical terms, and a compact care log](assets/sample-brief.png)
