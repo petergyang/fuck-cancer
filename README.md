@@ -2,27 +2,27 @@
 
 Creates a practical brief from the first details a family has, then keeps it updated as reports, appointments, and decisions arrive.
 
-https://github.com/user-attachments/assets/9fc8754f-ada3-474c-be65-d4c22f8a2262
-
 ## Problem
 
 Since I published [my mom's cancer story](https://creatoreconomy.so/p/my-mom-survived-breast-cancer-three), I’ve heard from many people supporting a loved one through cancer. Cancer casts a dark cloud over the whole family.
 
-The last thing a patient or caregiver needs is a pile of confusing medical terms, hype, and scattered information. They need clear answers to three questions: What should we do next? What are the key facts? What treatment options should we ask about?
+The last thing a patient or caregiver needs is a pile of confusing medical terms, hype, and scattered information. They need clear answers to three questions: What should we do next? What are the key facts? What should we ask the care team?
 
 ## What this skill does
 
-![Sample Cancer Brief with five callouts: current priority, questions for your doctor, clinical trials near you, medical terms defined, and a care log](assets/sample-brief.png)
+![Sample family medical brief with patient information, specific next steps, key facts, medical terms, and a compact care log](assets/sample-brief.png)
 
-This skill creates a source-of-truth brief from whatever you know now, even when most of the workup is still pending. It updates and relinks the same file as the situation changes. The brief gives you:
+This skill creates a source-of-truth brief from whatever you know now, even when most of the workup is still pending. It keeps the same destination updated as the situation changes. The brief gives you:
 
-1. **Current priority.** What needs to happen next and when, so the family knows what to focus on.
-2. **Questions for your doctor.** Five max, phrased the way you'd say them out loud.
-3. **Clinical trials near you.** Real listings pulled live from the official ClinicalTrials.gov API, with what each site must confirm.
-4. **Medical terms defined.** Every drug and test explained in plain English the first time it appears, so nobody has to leave the page to understand a sentence.
-5. **Care log.** A dated history of visits and results, newest first.
+1. **Patient information.** Essential identifiers, family doctor, care team, and contact information.
+2. **What to do next.** Up to three specific actions naming the relevant test, appointment, clinician, and date.
+3. **What we know.** The shortest useful summary of confirmed findings and meaningful uncertainty.
+4. **Medical terms.** Plain-English explanations when several markers, tests, or treatments need clarification.
+5. **Care log.** A compact history using dates such as `8/24` and years such as `2016`.
 
-The whole brief is one local Markdown file named `brief.md`: no account, no database, no API key. Unknown decision-relevant details stay visible as placeholders until the family has answers.
+Clinical trials, second opinions, and practical support appear under **What to do next** only when they are relevant.
+
+On first use, the skill asks whether to maintain the brief in a local Markdown file or a shareable Google Doc, unless a source of truth already exists. It updates only that destination and never creates a duplicate tracker.
 
 ## How to install the skill
 
@@ -74,6 +74,7 @@ The skill grounds its research in trusted medical sources:
 4. **Clinical trials:** The official [ClinicalTrials.gov API](https://clinicaltrials.gov/data-api/api), including the status of the individual site.
 5. **Medical definitions:** The [NCI Dictionary of Cancer Terms](https://www.cancer.gov/publications/dictionaries/cancer-terms/) or an equivalent official national source.
 6. **Emerging questions:** Peer-reviewed primary research indexed in PubMed, with early or indirect evidence labeled as such.
+7. **Specialists and services:** Official academic cancer-center pages for their own clinicians, programs, and trials.
 
 ## Disclaimer
 
@@ -83,11 +84,11 @@ The skill supports decisions with current evidence. It does not diagnose cancer,
 
 1. [`SKILL.md`](skills/fuck-cancer/SKILL.md) contains the complete care-navigation and research workflow.
 2. [`search_trials.py`](skills/fuck-cancer/scripts/search_trials.py) searches ClinicalTrials.gov API v2, filters sites by distance from home with `--near LAT,LON`, labels each site's recruitment status, and ranks likely matches first.
-3. [`eval.md`](skills/fuck-cancer/eval.md) checks that the skill creates, updates, and links the brief while keeping the response caring and concise.
+3. [`eval.md`](skills/fuck-cancer/eval.md) checks the destination, brief structure, action specificity, medical boundaries, and concise care-log format.
 4. [`test_search_trials.py`](tests/test_search_trials.py) covers location normalization, distance filtering, site-status handling, pagination, criteria previews, and relevance ordering.
 5. [`openai.yaml`](skills/fuck-cancer/agents/openai.yaml) contains the Codex skill metadata.
 
-The skill does not require an account, database, or API key. The trial-search helper uses only Python's standard library and requires Python 3.8 or newer.
+Local Markdown mode requires no account, database, or API key. Google Doc mode uses the user's connected Google Drive integration; if it is not connected, the skill asks the user to enable it before writing. The trial-search helper requires no API key, uses only Python's standard library, and requires Python 3.8 or newer.
 
 ## License
 

@@ -1,4 +1,4 @@
 interface:
   display_name: "Fuck Cancer"
-  short_description: "A living cancer brief with clear next steps"
-  default_prompt: "Use $fuck-cancer to create a linked family brief from what I know now, then keep updating the same brief as I share reports, questions, and new results."
+  short_description: "One living family medical brief with clear next steps"
+  default_prompt: "Use $fuck-cancer to turn these reports or notes into one living family medical brief. If I have not named a source of truth, ask whether I want local Markdown or a shareable Google Doc."
