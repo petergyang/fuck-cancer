@@ -1,17 +1,26 @@
 ---
 name: fuck-cancer
-description: Create and maintain one family medical brief from reports, notes, or partial information. Use for an active cancer workup, treatment decision, recurrence, appointment preparation, trials, second opinions, or meaningful care updates.
+description: Create and maintain one family medical brief from reports, notes, or partial information. Use when the user asks any cancer-related question or shares any cancer-related update, including symptoms during a workup, diagnosis, pathology, biomarkers, staging, treatment, recurrence, appointments, trials, second opinions, or caregiving decisions.
 ---
 
 # Fuck Cancer
 
 Help a patient or caregiver understand what is happening and take the next useful step. Support decisions with current evidence without making the decision for them.
 
+Run this skill for every cancer-related question or discussion, even when the user does not invoke it explicitly.
+
 ## Keep one living brief
 
 Turn a sentence, brain dump, report, screenshot, or scattered update into one source-of-truth brief with patient information, next steps, key facts, and a care log. Read all supplied material before responding.
 
-Use the destination the user names. At the start of later turns, read that source of truth before proposing or making changes. Never create a second tracker.
+Use the destination the user names. At the start of later turns, read the full source of truth before proposing or making changes. Never create a second tracker.
+
+If a Google Doc has separate `Overview` and `Log` tabs, treat both tabs as one brief and read both at the start of every cancer-related turn:
+
+- **Overview:** Keep only the current snapshot: patient information, up to three next actions, what is known now, and useful medical terms.
+- **Log:** Keep appointment preparation and notes plus the chronological care log. Add new milestones here and do not recreate a care-log section in `Overview`.
+
+When a new detail changes both the current plan and the history, update the relevant item in `Overview` and add or revise the corresponding entry in `Log`.
 
 On first use, if no destination exists, ask: `Do you want me to keep this in a local Markdown file, or use a Google Doc that is easier to share?` Do not ask again after the destination is established, and do not let setup delay urgent guidance.
 
@@ -30,7 +39,7 @@ If the user wants approval first, show the exact proposed changes and wait. Afte
 3. Identify the immediate milestone, such as diagnosis, staging, pending biomarkers, treatment choice, response assessment, or another option.
 4. Explain the relevant findings in plain language. Label a result already in progress `Pending`; use `Unknown - ask the care team` only for a gap that could change the next decision.
 5. Turn a potentially useful missing test into a respectful question: Was it done, would it help now, and what would the result change? Do not present it as an error or requirement.
-6. Research only what helps with the current decision, then update the brief and care log.
+6. Research only what helps with the current decision, then update the current snapshot and chronological log in their designated locations.
 
 Do not give the user a long intake form. Ask only the few questions that could change the immediate explanation, research, or action. Do not wait for complete pathology or staging before creating a useful partial brief.
 
@@ -90,9 +99,11 @@ Use a concise numbered list with bold stems. Combine each finding, its meaning, 
 
 Use this optional section when several biomarkers, tests, or staging terms need explanation. Define each in one or two short sentences, then connect it to the patient's confirmed result and the treatment category it may affect. Use a brief parenthetical earlier only when the reader must understand the term immediately; do not define the same term twice.
 
-### Care log
+### Log
 
-Use a numbered list, newest first. Use `M/D` for current-year events and the year alone for older history when the exact date does not matter. Include only decision-relevant milestones and never invent a date. Keep exploratory conversations, personalized-vaccine ideas, and other experimental possibilities here unless they create a current action.
+In a tabbed Google Doc, keep appointment preparation and notes plus the chronological care log in the `Log` tab. In a single-tab document or local Markdown file, use a `Care log` section after `Medical terms`.
+
+Use a numbered list for the chronological care log, newest first. Use `M/D` for current-year events and the year alone for older history when the exact date does not matter. Include only decision-relevant milestones and never invent a date. Keep exploratory conversations, personalized-vaccine ideas, and other experimental possibilities here unless they create a current action.
 
 ## Sources and tone
 
