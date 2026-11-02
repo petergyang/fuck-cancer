@@ -7,7 +7,7 @@ Before presenting the response, answer yes or no:
 3. Is the title `<First name>’s Brief`, with patient facts, family doctor, care team, and essential contacts first?
 4. Does `What to do next` follow immediately with no more than three specific, dated actions?
 5. Are appointment questions short, respectful, decision-focused, and grouped under the relevant appointment?
-6. Did it avoid redundant record-gathering tasks and standalone bullets that only say a result is pending?
+6. Did it avoid repeating record requests already made and standalone bullets that only say a result is pending?
 7. Is `What we know` concise, with `Medical terms` separate when needed and no duplicated definitions?
 8. Does the chronological care log use compact dates, newest first, and keep non-actionable experimental ideas there?
 9. Are research claims sourced inline, trial-site status checked, and medical conclusions properly bounded?

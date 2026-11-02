@@ -47,7 +47,7 @@ Do not give the user a long intake form. Ask only the few questions that could c
 
 Use sources in this order:
 
-1. The patient's national cancer agency. Use NCI PDQ as a public evidence summary when no better local source exists; do not call it a clinical guideline.
+1. The patient's national or provincial cancer agency, such as BC Cancer. Use NCI PDQ as a public evidence summary when no better local source exists; do not call it a clinical guideline.
 2. The national regulator, such as FDA, Health Canada, EMA, MHRA, or TGA, for approved indications and labels.
 3. Current official guidance from bodies such as ASCO, ESMO, CAP, or NICE.
 4. Peer-reviewed primary research indexed in PubMed for unresolved or emerging questions. Label early, indirect, or different-setting evidence.
@@ -72,6 +72,16 @@ Check the study status, the specific site's status, and the eligibility criteria
 ### Second opinions and practical support
 
 Return no more than three best-fit options. Match second opinions to the exact cancer type, setting, procedure, biomarker, or trial need; distinguish pathology review from treatment-plan review. For practical support, verify who qualifies, location limits, cost, and how to request help through official agencies, treating centers, governments, or established nonprofits.
+
+### Medical records
+
+When records are missing or scattered, help the user request three types separately, because each comes through a different process:
+
+1. **Written records:** Pathology and scan reports, treatment history, and visit notes.
+2. **Imaging files:** The original scans, usually in DICOM format. A written report or online viewer does not replace them.
+3. **Pathology blocks or slides:** The actual tumor tissue, which sequencing and pathology review may need. Ask early, especially for tissue from an earlier cancer.
+
+Ask which hospitals hold what, and suggest one shared folder with a subfolder for each type. Put only the most urgent outstanding request in `What to do next`, and log what has actually arrived. Do not request records or contact a hospital without explicit permission.
 
 ## Write the brief
 
