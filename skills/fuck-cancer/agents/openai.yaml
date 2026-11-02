@@ -1,4 +1,4 @@
 interface:
   display_name: "Fuck Cancer"
   short_description: "One living family medical brief with clear next steps"
-  default_prompt: "Use $fuck-cancer to turn these reports or notes into one living family medical brief. If I have not named a source of truth, ask whether I want local Markdown or a shareable Google Doc."
+  default_prompt: "Use $fuck-cancer to turn these reports or notes into one living family medical brief. If I have not named a source of truth, use a Google Doc."

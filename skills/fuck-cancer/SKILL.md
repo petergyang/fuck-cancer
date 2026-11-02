@@ -22,12 +22,12 @@ If a Google Doc has separate `Overview` and `Log` tabs, treat both tabs as one b
 
 When a new detail changes both the current plan and the history, update the relevant item in `Overview` and add or revise the corresponding entry in `Log`.
 
-On first use, if no destination exists, ask: `Do you want me to keep this in a local Markdown file, or use a Google Doc that is easier to share?` Do not ask again after the destination is established, and do not let setup delay urgent guidance.
+On first use, if the user has not named a destination, keep the brief in a Google Doc so it is easy to share with family. Do not let setup delay urgent guidance.
 
-On a bare invocation with no details, open with one calm, welcoming sentence, then ask for the essentials in a single short message: who the brief is for, what is happening now, and whether anything is time-sensitive, ending with the destination question. Never open with the destination question alone or with a form.
+On a bare invocation with no details, open with one calm, welcoming sentence, then ask for the essentials in a single short message: who the brief is for, what is happening now, and whether anything is time-sensitive. Never open with a form.
 
-- **Local Markdown:** Create or reuse a file named after the patient, such as `alex-brief.md`, in the current workspace.
-- **Google Docs:** Ask for an existing Doc or offer to create one. Use the connected Google Drive or Docs tool. If it is unavailable, ask the user to enable it; do not create a local fallback.
+- **Google Docs:** Use the Doc the user names or create one with the connected Google Drive or Docs tool. If the tool is unavailable, ask the user to enable it. If they can't or prefer not to, offer local Markdown.
+- **Local Markdown:** Use only when the user asks for it or can't connect Google. Create or reuse a file named after the patient, such as `alex-brief.md`, in the current workspace.
 - **No persistent destination:** Return the full brief in chat and update that version later.
 
 If the user wants approval first, show the exact proposed changes and wait. After an authorized edit, read the saved destination back, link it, state what changed, and name the immediate next step.
@@ -53,7 +53,7 @@ Use sources in this order:
 4. Peer-reviewed primary research indexed in PubMed for unresolved or emerging questions. Label early, indirect, or different-setting evidence.
 5. Academic cancer-center pages for their own specialists, services, and trials.
 
-Do not cite search snippets, SEO health sites, unsourced summaries, social posts, AI-generated medical pages, or unofficial copies of copyrighted resources such as UpToDate or NCCN. Treat an authorized user-supplied copy as evidence and state its date.
+Do not cite search snippets, SEO health sites, unsourced summaries, social posts, AI-generated medical pages, or unofficial copies of copyrighted resources such as UpToDate. Do not retrieve or summarize NCCN content. For US patients, turn it into a question for the care team: `Does this plan follow NCCN guidelines?`
 
 Use an official cancer dictionary for definitions. CIViC may supplement variant research, but identify it as community-curated and never use it alone to determine treatment or trial eligibility.
 

@@ -32,7 +32,7 @@ This skill creates a concise, fact-based brief with 5 sections:
 
 It creates this brief based on documents and context that you share with it and trusted medical sources like [NCI's PDQ summaries](https://www.cancer.gov/publications/pdq/information-summaries) and the [ClinicalTrials.gov API](https://clinicaltrials.gov/data-api/api).
 
-On first use, the skill will ask you whether to create the brief in a local Markdown file or a shareable Google Doc. You can run the skill with more context to update the brief over time.
+On first use, the skill creates the brief in a Google Doc you can share, or a local Markdown file if you ask for one. You can run the skill with more context to update the brief over time.
 
 ## How to install the skill
 
@@ -98,7 +98,7 @@ The skill supports decisions with current evidence. It does not diagnose cancer,
 4. [`test_search_trials.py`](tests/test_search_trials.py) covers location normalization, distance filtering, site-status handling, pagination, criteria previews, and relevance ordering.
 5. [`openai.yaml`](skills/fuck-cancer/agents/openai.yaml) contains the Codex skill metadata.
 
-Local Markdown mode requires no account, database, or API key. Google Doc mode uses the user's connected Google Drive integration; if it is not connected, the skill asks the user to enable it before writing. The trial-search helper requires no API key, uses only Python's standard library, and requires Python 3.8 or newer.
+Google Doc mode, the default, uses the user's connected Google Drive integration; if it is not connected, the skill asks the user to enable it before writing. Local Markdown mode requires no account, database, or API key. The trial-search helper requires no API key, uses only Python's standard library, and requires Python 3.8 or newer.
 
 ## License
 

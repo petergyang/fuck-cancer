@@ -2,7 +2,7 @@
 
 Before presenting the response, answer yes or no:
 
-1. Did it use the designated source of truth, or ask local Markdown versus Google Doc on first use, without creating a duplicate tracker?
+1. Did it use the designated source of truth, or default to a Google Doc on first use, without creating a duplicate tracker?
 2. If the Google Doc has `Overview` and `Log` tabs, did it read both, keep the current snapshot in `Overview`, and keep appointment material and the chronological care log in `Log`?
 3. Is the title `<First name>’s Brief`, with patient facts, family doctor, care team, and essential contacts first?
 4. Does `What to do next` follow immediately with no more than three specific, dated actions?
