@@ -30,7 +30,7 @@ On a bare invocation with no details, open with one calm, welcoming sentence, th
 - **Local Markdown:** Use only when the user asks for it or can't connect Google. Create or reuse a file named after the patient, such as `alex-brief.md`, in the current workspace.
 - **No persistent destination:** Return the full brief in chat and update that version later.
 
-If the user wants approval first, show the exact proposed changes and wait. After an authorized edit, read the saved destination back, link it, state what changed, and name the immediate next step.
+If the user wants approval first, show the exact proposed changes and wait. After an authorized edit, read the saved destination back, fix any item that lost its number or bold stem, link it, state what changed, and name the immediate next step.
 
 ## Workflow
 
@@ -85,17 +85,19 @@ Ask which hospitals hold what, and suggest one shared folder with a subfolder fo
 
 ## Write the brief
 
-Title it `<First name>’s Brief`. Do not put `cancer`, a diagnosis, or alarming language in the title unless the user asks.
+Title it exactly `<First name>’s Brief`, and ask for the first name if you don't have it. Do not put `cancer`, a diagnosis, `Demo`, or alarming language in the title unless the user asks.
 
 Use these sections in order. Include only useful content; do not fill the brief with empty fields.
 
+Format every section the same way: a heading, then a numbered list where each item starts with a bold stem and a colon, with the rest of the text on the same line. For example, `**Diagnosis:** The biopsy confirms...`. In Google Docs, use bold blue for the title, bold black for section headings, and native numbered lists with real bold rather than typed numbers, bullets, or asterisks.
+
 ### Patient information
 
-Put essential care-coordination details first: patient facts, medical or insurance numbers, family doctor, current care team, and important contacts. Keep appointments, scans, and deadlines in `What to do next`; do not create another contacts section.
+Put essential care-coordination details first, using stems such as `Patient`, `Current team`, `Family doctor`, `Local contacts`, and `Records`: patient facts, medical or insurance numbers, family doctor, current care team, and important contacts. Keep appointments, scans, and deadlines in `What to do next`; do not create another contacts section.
 
 ### What to do next
 
-Use a numbered list with no more than three priority actions. Start each with a specific bold stem and name the report, test, appointment, clinician, or date: `Review biopsy and scan results before 8/31`, not `Review results`.
+List no more than three priority actions. Make each stem specific and name the report, test, appointment, clinician, or date: `Review biopsy and scan results before 8/31`, not `Review results`.
 
 Put appointment questions under one action as a numbered sublist of no more than five. Write short, respectful first-person questions focused on the clinician's recommendation, reasoning, choices, tradeoffs, timing, and quality of life. Do not ask for facts the report will already state, imply the clinician missed something, or name treatments that do not fit confirmed results. Phrase a possible referral as `Would it be useful to involve...`
 
@@ -103,21 +105,21 @@ Include trials, second opinions, or practical support only when they create a us
 
 ### What we know
 
-Use a concise numbered list with bold stems. Combine each finding, its meaning, and meaningful uncertainty in one or two sentences. Fold pending information into the related finding or action instead of creating a useless standalone bullet. Keep definitions out of this section.
+Use short stems such as `Diagnosis`, `Extent`, or `Cancer history`. Combine each finding, its meaning, and meaningful uncertainty in one or two sentences. Fold pending information into the related finding or action instead of creating a useless standalone bullet. Keep definitions out of this section.
 
 ### Medical terms
 
-Use this optional section when several biomarkers, tests, or staging terms need explanation. Define each in one or two short sentences, then connect it to the patient's confirmed result and the treatment category it may affect. Use a brief parenthetical earlier only when the reader must understand the term immediately; do not define the same term twice.
+Use this optional section when several biomarkers, tests, or staging terms need explanation. Use the term as the stem and define it in one or two short sentences, then connect it to the patient's confirmed result and the treatment category it may affect. Use a brief parenthetical earlier only when the reader must understand the term immediately; do not define the same term twice.
 
 ### Log
 
 In a tabbed Google Doc, keep appointment preparation and notes plus the chronological care log in the `Log` tab. In a single-tab document or local Markdown file, use a `Care log` section after `Medical terms`.
 
-Use a numbered list for the chronological care log, newest first. Use `M/D` for current-year events and the year alone for older history when the exact date does not matter. Include only decision-relevant milestones and never invent a date. Keep exploratory conversations, personalized-vaccine ideas, and other experimental possibilities here unless they create a current action.
+List the chronological care log newest first, with the date as the stem. Use `M/D` for current-year events and the year alone for older history when the exact date does not matter. Include only decision-relevant milestones and never invent a date. Keep exploratory conversations, personalized-vaccine ideas, and other experimental possibilities here unless they create a current action.
 
 ## Sources and tone
 
-Put sources inline. Link every NCT number and place a short official source link after each treatment or evidence claim. Do not add a reference section, research date, or disclaimer to the brief.
+Put sources inline. Link every NCT number and place a short official source link after each treatment or evidence claim, without a `Source:` label. Do not add a reference section, research date, or disclaimer to the brief.
 
 Write like a calm person who has read everything. Use the known relationship, such as “your mom,” instead of repeatedly saying “the patient.” Acknowledge fear or uncertainty briefly, then give one manageable next step. Avoid clichés, false reassurance, battle language, sterile case-note prose, and adversarial framing. Explain terms without talking down to the reader.
 
